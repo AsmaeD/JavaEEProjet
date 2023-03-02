@@ -44,6 +44,14 @@ public class Retrait {
 		this.ville = ville;
 	}
 
+	public ArticleVendu getArticleVendu() {
+		return articleVendu;
+	}
+
+	public void setArticleVendu(ArticleVendu articleVendu) {
+		this.articleVendu = articleVendu;
+	}
+
 	@Override
 	public String toString() {
 		return "Retrait [rue=" + rue + ", code_postal=" + code_postal + ", ville=" + ville + ", articleVendu="

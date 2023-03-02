@@ -14,6 +14,8 @@ public class ArticleVendu {
 	private Utilisateur utilisateur;
 	private Categorie categorie;
 	
+	// Constructeur avec tous les attributs
+	
 	public ArticleVendu(int noArticle, String nomArticle, String description, String dateDebutEncheres,
 			String dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
 		
@@ -26,6 +28,8 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 		this.etatVente = etatVente;
 	}
+	
+	// Constructeur sans le numéro d'article
 
 	public ArticleVendu(String nomArticle, String description, String dateDebutEncheres, String dateFinEncheres,
 			int miseAPrix, int prixVente, String etatVente) {

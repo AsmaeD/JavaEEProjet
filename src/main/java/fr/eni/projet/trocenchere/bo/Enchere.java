@@ -8,6 +8,8 @@ public class Enchere {
 	private Utilisateur utilisateur;
 	private ArticleVendu articleVendu;
 	
+	// Constructeur avec tous les attributs
+	
 	public Enchere(String dateEnchere, int montant_enchere) {
 		
 		this.dateEnchere = dateEnchere;

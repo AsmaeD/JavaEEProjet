@@ -5,10 +5,14 @@ public class Categorie {
 	private int no_categorie;
 	private String libelle;
 	
+	// Constructeur avec tous les attributs
+	
 	public Categorie(int no_categorie, String libelle) {
 		this.no_categorie = no_categorie;
 		this.libelle = libelle;
 	}
+	
+	// Constructeur sans le numéro de catégorie
 
 	public Categorie(String libelle) {
 		this.libelle = libelle;

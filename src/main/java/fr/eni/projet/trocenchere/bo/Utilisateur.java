@@ -14,6 +14,9 @@ public class Utilisateur {
 	private String motDePasse;
 	private int credit;
 	private byte administrateur;
+	
+	// Constructeur avec tous les attributs
+	
 	public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone,
 			String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
 
@@ -30,6 +33,8 @@ public class Utilisateur {
 		this.credit = credit;
 		this.administrateur = administrateur;
 	}
+	
+	// Constructeur sans le numéro d'utilisateur
 	
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, byte administrateur) {

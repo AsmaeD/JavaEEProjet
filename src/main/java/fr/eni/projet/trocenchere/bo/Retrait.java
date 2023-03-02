@@ -7,6 +7,8 @@ public class Retrait {
 	private String ville;
 	
 	private ArticleVendu articleVendu;
+	
+	// Constructeur avec tous les attributs
 
 	public Retrait(String rue, String code_postal, String ville) {
 		

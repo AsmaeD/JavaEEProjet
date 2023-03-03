@@ -10,7 +10,7 @@ public class UtilisateurManager {
 	
 
 	public UtilisateurManager() {
-		this.retraitDAO = DAOFactory.getUtilisateurDAO;
+		this.utilisateurDAO = DAOFactory.getUtilisateurDAO;
 	}
 
 	public void ajouter(Utilisateur utilisateur) throws BusinessException {
@@ -30,7 +30,7 @@ public class UtilisateurManager {
 		
 		if(!exception.hasErreurs())
 		{
-			this.trocEnchereDAO.insert(utilisateur);
+			this.utilisateurDAO.insert(utilisateur);
 		}
 		else
 		{
@@ -40,12 +40,12 @@ public class UtilisateurManager {
 	
 	public void supprimer(Utilisateur utilisateur) {
 		
-		this.trocEnchereDAO.delete(utilisateur);
+		this.utilisateurDAO.delete(utilisateur);
 	}
 	
 	public Utilisateur selectionnerUtilisateur(int noUtilisateur) {
 		
-		return this.trocEnchereDAO.selectById(noUtilisateur);
+		return this.utilisateurDAO.selectById(noUtilisateur);
 	}
 	
 	public void validerUtilisateurNotNull (Utilisateur utilisateur, BusinessException businessException) {

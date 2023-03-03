@@ -5,8 +5,8 @@ public class ArticleVendu {
 	private int noArticle;
 	private String nomArticle;
 	private String description;
-	private String dateDebutEncheres;
-	private String dateFinEncheres;
+	private int dateDebutEncheres;
+	private int dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
 	private String etatVente;
@@ -14,8 +14,15 @@ public class ArticleVendu {
 	private Utilisateur utilisateur;
 	private Categorie categorie;
 	
-	public ArticleVendu(int noArticle, String nomArticle, String description, String dateDebutEncheres,
-			String dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
+	public ArticleVendu(
+			int noArticle, 
+			String nomArticle, 
+			String description, 
+			int dateDebutEncheres,
+			int dateFinEncheres, 
+			int miseAPrix, 
+			int prixVente, 
+			String etatVente) {
 		
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
@@ -27,8 +34,14 @@ public class ArticleVendu {
 		this.etatVente = etatVente;
 	}
 
-	public ArticleVendu(String nomArticle, String description, String dateDebutEncheres, String dateFinEncheres,
-			int miseAPrix, int prixVente, String etatVente) {
+	public ArticleVendu(
+			String nomArticle, 
+			String description, 
+			int dateDebutEncheres, 
+			int dateFinEncheres,
+			int miseAPrix, 
+			int prixVente, 
+			String etatVente) {
 
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -66,19 +79,19 @@ public class ArticleVendu {
 		this.description = description;
 	}
 
-	public String getDateDebutEncheres() {
+	public int getDateDebutEncheres() {
 		return dateDebutEncheres;
 	}
 
-	public void setDateDebutEncheres(String dateDebutEncheres) {
+	public void setDateDebutEncheres(int dateDebutEncheres) {
 		this.dateDebutEncheres = dateDebutEncheres;
 	}
 
-	public String getDateFinEncheres() {
+	public int getDateFinEncheres() {
 		return dateFinEncheres;
 	}
 
-	public void setDateFinEncheres(String dateFinEncheres) {
+	public void setDateFinEncheres(int dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 
@@ -124,9 +137,15 @@ public class ArticleVendu {
 
 	@Override
 	public String toString() {
-		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
-				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix="
-				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + ", categorie=" + categorie
+		return "ArticleVendu [noArticle=" + noArticle 
+				+ ", nomArticle=" + nomArticle 
+				+ ", description=" + description
+				+ ", dateDebutEncheres=" + dateDebutEncheres 
+				+ ", dateFinEncheres=" + dateFinEncheres 
+				+ ", miseAPrix=" + miseAPrix 
+				+ ", prixVente=" + prixVente 
+				+ ", etatVente=" + etatVente 
+				+ ", categorie=" + categorie
 				+ "]";
 	}
 

@@ -1,6 +1,6 @@
 package fr.eni.projet.trocechere;
 
-public class BusinessException {
+public class BusinessException extends Exception {
 	//;ktehnjaetnehntù
 	///njrg
 }

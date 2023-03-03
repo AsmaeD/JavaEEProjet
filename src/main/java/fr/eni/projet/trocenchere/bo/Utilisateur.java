@@ -13,9 +13,21 @@ public class Utilisateur {
 	private String ville;
 	private String motDePasse;
 	private int credit;
-	private byte administrateur;
-	public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
+	private boolean administrateur;
+
+	public Utilisateur(
+			int no_utilisateur, 
+			String pseudo, 
+			String nom, 
+			String prenom, 
+			String email, 
+			String telephone,
+			String rue,
+			String codePostal, 
+			String ville, 
+			String motDePasse, 
+			int credit, 
+			boolean administrateur) {
 
 		this.no_utilisateur = no_utilisateur;
 		this.pseudo = pseudo;
@@ -31,8 +43,18 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 	
-	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
-			String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
+	public Utilisateur(
+			String pseudo, 
+			String nom, 
+			String prenom, 
+			String email,
+			String telephone, 
+			String rue,
+			String codePostal,
+			String ville, 
+			String motDePasse, 
+			int credit, 
+			boolean administrateur) {
 
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -138,20 +160,30 @@ public class Utilisateur {
 		this.credit = credit;
 	}
 
-	public byte getAdministrateur() {
+	public boolean getAdministrateur() {
 		return administrateur;
 	}
 
-	public void setAdministrateur(byte administrateur) {
+	public void setAdministrateur(boolean administrateur) {
 		this.administrateur = administrateur;
 	}
 
 	@Override
 	public String toString() {
-		return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
-				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
-				+ ", administrateur=" + administrateur + "]";
+		return "Utilisateur ["
+				+ "no_utilisateur=" + no_utilisateur 
+				+ ", pseudo=" + pseudo 
+				+ ", nom=" + nom 
+				+ ", prenom=" + prenom 
+				+ ", email=" + email 
+				+ ", telephone=" + telephone 
+				+ ", rue=" + rue 
+				+ ", codePostal=" + codePostal 
+				+ ", ville=" + ville 
+				+ ", motDePasse=" + motDePasse 
+				+ ", credit=" + credit
+				+ ", administrateur=" + administrateur 
+				+ "]";
 	}
 	
 }

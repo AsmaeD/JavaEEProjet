@@ -8,7 +8,9 @@ public class Enchere {
 	private Utilisateur utilisateur;
 	private ArticleVendu articleVendu;
 	
-	public Enchere(String dateEnchere, int montant_enchere) {
+	public Enchere(
+			String dateEnchere, 
+			int montant_enchere) {
 		
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
@@ -51,8 +53,10 @@ public class Enchere {
 
 	@Override
 	public String toString() {
-		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + ", articleVendu="
-				+ articleVendu + "]";
+		return "Enchere [dateEnchere=" + dateEnchere 
+				+ ", montant_enchere=" + montant_enchere 
+				+ ", articleVendu=" + articleVendu 
+				+ "]";
 	}
 	
 }

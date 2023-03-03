@@ -6,6 +6,12 @@ import fr.eni.projet.trocenchere.bo.Utilisateur;
 public class UtilisateurManager {
 	
 	private DAO<Utilisateur> utilisateurDAO;
+	
+	
+
+	public UtilisateurManager() {
+		this.retraitDAO = DAOFactory.getUtilisateurDAO;
+	}
 
 	public void ajouter(Utilisateur utilisateur) throws BusinessException {
 		

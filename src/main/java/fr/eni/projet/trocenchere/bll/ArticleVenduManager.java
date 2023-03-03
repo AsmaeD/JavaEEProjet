@@ -9,7 +9,7 @@ public class ArticleVenduManager {
 	private DAO<ArticleVendu> articleDAO;
 
 	public ArticleVenduManager() {
-		this.articleDAO = DAOFactory.getArticleDAO;
+		this.articleDAO = DAOFactory.getArticleVenduDAO;
 	}
 	
 	public void ajouter(ArticleVendu articleVendu) throws BusinessException {

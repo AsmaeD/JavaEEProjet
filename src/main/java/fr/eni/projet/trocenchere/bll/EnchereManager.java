@@ -10,7 +10,7 @@ public class EnchereManager {
 	private DAO<Enchere> enchereDAO;	
 
 	public EnchereManager() {
-		this.enchereDAO = DAOFactory.getCategorieDAO;
+		this.enchereDAO = DAOFactory.getEnchereDAO;
 	}
 
 	public void ajouter(Enchere enchere) throws BusinessException {

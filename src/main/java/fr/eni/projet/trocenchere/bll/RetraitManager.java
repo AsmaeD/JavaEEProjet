@@ -8,7 +8,7 @@ public class RetraitManager {
 	private DAO<Retrait> retraitDAO;
 
 	public RetraitManager() {
-		this.retraitDAO = DAOFactory.getCategorieDAO;
+		this.retraitDAO = DAOFactory.getRetraitDAO;
 	}
 
 	public void ajouter(Retrait retrait) throws BusinessException {

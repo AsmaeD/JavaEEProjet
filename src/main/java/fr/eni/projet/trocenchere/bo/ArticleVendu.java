@@ -12,7 +12,7 @@ public class ArticleVendu {
 	private String etatVente;
 	
 	private Utilisateur utilisateur;
-	private Categorie categorie;
+	int numeroCategorie;
 	
 	// Constructeur avec tous les attributs
 	
@@ -118,19 +118,19 @@ public class ArticleVendu {
 		this.utilisateur = utilisateur;
 	}
 
-	public Categorie getCategorie() {
-		return categorie;
+	public int getNumeroCategorie() {
+		return numeroCategorie;
 	}
 
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
+	public void setNumeroCategorie(int numeroCategorie) {
+		this.numeroCategorie = numeroCategorie;
 	}
 
 	@Override
 	public String toString() {
 		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
 				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix="
-				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + ", categorie=" + categorie
+				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + ", categorie=" + numeroCategorie
 				+ "]";
 	}
 

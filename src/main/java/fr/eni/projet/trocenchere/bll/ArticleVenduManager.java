@@ -52,6 +52,10 @@ public class ArticleVenduManager {
 		return this.articleDAO.selectByNom(article);
 	}
 	
+	public List<ArticleVendu> selectionnerArticlesParCategorie(ArticleVendu article) {
+		return this.articleDAO.selectByCat(article);
+	}
+	
 	public ArticleVendu selectionnerUnArticle(ArticleVendu article) {
 		return this.articleDAO.selectByRef(article);
 	}

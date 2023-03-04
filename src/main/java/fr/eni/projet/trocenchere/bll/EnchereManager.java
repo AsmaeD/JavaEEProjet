@@ -36,8 +36,8 @@ public class EnchereManager {
 		this.enchereDAO.delete(enchere);
 	}
 	
-	public Enchere selectionnerEnchereSurArticle(int noArticle) {
-		return this.enchereDAO.selectById(noArticle);
+	public Enchere selectionnerEnchereSurArticle(Enchere enchere) {
+		return this.enchereDAO.selectByRef(enchere);
 	}
 	
 	public List<Enchere> selectionnerToutesEncheres() {

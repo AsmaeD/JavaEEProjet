@@ -35,8 +35,8 @@ public class RetraitManager {
 		this.retraitDAO.delete(retrait);
 	}
 	
-	public Retrait selectionnerRetrait(int noArticle) {
-		return this.retraitDAO.selectById(noArticle);
+	public Retrait selectionnerRetrait(Retrait retrait) {
+		return this.retraitDAO.selectByRef(retrait);
 	}
 	
 	public void validerRetraitNotNull (Retrait retrait, BusinessException businessException) {

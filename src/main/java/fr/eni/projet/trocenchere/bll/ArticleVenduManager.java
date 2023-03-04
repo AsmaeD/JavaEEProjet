@@ -48,8 +48,8 @@ public class ArticleVenduManager {
 		return this.articleDAO.selectAll();
 	}
 	
-	public ArticleVendu selectionnerUnArticle(int noArticle) {
-		return this.articleDAO.selectById(noArticle);
+	public ArticleVendu selectionnerUnArticle(ArticleVendu article) {
+		return this.articleDAO.selectByRef(article);
 	}
 	
 	private void validerArticleNotNull (ArticleVendu articleVendu, BusinessException businessException) {

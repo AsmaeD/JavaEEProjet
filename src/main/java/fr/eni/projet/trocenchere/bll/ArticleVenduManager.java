@@ -48,6 +48,10 @@ public class ArticleVenduManager {
 		return this.articleDAO.selectAll();
 	}
 	
+	public List<ArticleVendu> selectionnerArticlesNomPartiel(ArticleVendu article) {
+		return this.articleDAO.selectByNom(article);
+	}
+	
 	public ArticleVendu selectionnerUnArticle(ArticleVendu article) {
 		return this.articleDAO.selectByRef(article);
 	}

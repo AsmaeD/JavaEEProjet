@@ -43,9 +43,9 @@ public class UtilisateurManager {
 		this.utilisateurDAO.delete(utilisateur);
 	}
 	
-	public Utilisateur selectionnerUtilisateur(Utilisateur utilisateur) {
+	public Utilisateur selectionnerUtilisateurParPseudo(Utilisateur utilisateur) {
 		
-		return this.utilisateurDAO.selectByRef(utilisateur);
+		return this.utilisateurDAO.selectByPseudo(utilisateur);
 	}
 	
 	public void validerUtilisateurNotNull (Utilisateur utilisateur, BusinessException businessException) {

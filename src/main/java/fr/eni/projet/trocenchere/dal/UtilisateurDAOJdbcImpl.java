@@ -14,8 +14,9 @@ import fr.eni.projet.trocenchere.bo.Utilisateur;
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	//declaration of all constants of sql requests
+	//TODO be careful woth unicité couple pseudo mot de passe à définir encore
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS" ;
-	private static final String SELECT_BY_PSEUDO = ("SELECT " 
+	private static final String SELECT_BY_PSEUDO = "SELECT " 
 			+ "no_utilisateur, " 
 			+ "pseudo, " 
 			+ "nom, " 
@@ -30,7 +31,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			+ "administrateur "
 			+ "FROM UTILISATEURS "
 			+ "WHERE pseudo = ? "
-			+ ";") ;
+			+ ";" ;
 	
 	private static final String INSERT_USER = "INSERT INTO UTILISATEURS("
 			+ "pseudo, "
@@ -46,7 +47,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			+ "administrateur) "
 			+ "VALUES (?,?,?,?,?,?,?,?,?,?,?);" ;
 	
-	private static final String DELETE_USER = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ? ;" ;
+	private static final String DELETE_USER = "DELETE FROM UTILISATEURS WHERE pseudo = ? ;" ;
 	private static final String UPDATE_USER = "UPDATE UTILISATEURS SET "
 			+ "email = ?, "
 			+ "telephone = ?, "
@@ -56,9 +57,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			+ "mot_de_passe = ?, "
 			+ "credit = ?, "
 			+ "administrateur = ? "
-			+ " where no_utilisateur = ? ;" ;
+			+ "WHERE pseudo = ? ;" ;
 	
-	@Override
+	@Override//check arg 
 	public void delete(String pseudo) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection())
 		{
@@ -113,7 +114,41 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public Utilisateur selectByPseudo(String pseudo) throws BusinessException {
-		return null;
+		//initialisation
+		//might not be a good idea
+		Utilisateur user = null ;
+		try {
+			
+			Connection cnx = ConnectionProvider.getConnection();
+			
+			PreparedStatement pstmt ;
+			pstmt = cnx.prepareStatement(SELECT_BY_PSEUDO );
+			//in SELECT_BY_PSEUDO only one variable passes : pseudo
+			//set variable to pseudo
+			pstmt.setString(1, pseudo ) ;
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				user = new Utilisateur(
+					rs.getInt("no_utilisateur"), 
+					rs.getString("pseudo"),
+					rs.getString("nom"),
+					rs.getString("prenom"),
+					rs.getString("email"),
+					rs.getString("telephone"),
+					rs.getString("rue"),
+					rs.getString("code_postale"),
+					rs.getString("ville"),
+					rs.getString("mot_de_passe"),
+					rs.getInt("credit"),
+					rs.getBoolean("administrateur")
+					);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
 	}
 
 	@Override
@@ -194,14 +229,14 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				//which error when it is'nt the case ?
 				pstmt = cnx.prepareStatement(UPDATE_USER, user.getNumUtilisateur());
 				//veri if rank == rank in database or rank in string statement
-				pstmt.setString(4,user.getEmail()) ;
-				pstmt.setString(5, user.getTelephone()) ;
-				pstmt.setString(6, user.getRue()) ;
-				pstmt.setString(7, user.getCodePostal()) ;
-				pstmt.setString(8, user.getVille()) ;
-				pstmt.setString(8, user.getMotDePasse()) ;
-				pstmt.setInt(9, user.getCredit()) ;
-				pstmt.setBoolean(10, user.getAdministrateur()) ;
+				pstmt.setString(1,user.getEmail()) ;
+				pstmt.setString(2, user.getTelephone()) ;
+				pstmt.setString(3, user.getRue()) ;
+				pstmt.setString(4, user.getCodePostal()) ;
+				pstmt.setString(5, user.getVille()) ;
+				pstmt.setString(6, user.getMotDePasse()) ;
+				pstmt.setInt(7, user.getCredit()) ;
+				pstmt.setBoolean(8, user.getAdministrateur()) ;
 				pstmt.executeUpdate() ;
 				pstmt.close() ;
 				
@@ -221,10 +256,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			//businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
 			throw businessException;
 		}
+		
 	}
-
-
-
-	
 
 }

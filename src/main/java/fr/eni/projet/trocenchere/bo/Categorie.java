@@ -2,13 +2,13 @@ package fr.eni.projet.trocenchere.bo;
 
 public class Categorie {
 	
-	private int no_categorie;
+	private int numCategorie;
 	private String libelle;
 	
 	public Categorie(
-			int no_categorie, 
+			int numCategorie, 
 			String libelle) {
-		this.no_categorie = no_categorie;
+		this.numCategorie = numCategorie;
 		this.libelle = libelle;
 	}
 
@@ -19,12 +19,12 @@ public class Categorie {
 	public Categorie() {
 	}
 
-	public int getNo_categorie() {
-		return no_categorie;
+	public int getNumCategorie() {
+		return numCategorie;
 	}
 
-	public void setNo_categorie(int no_categorie) {
-		this.no_categorie = no_categorie;
+	public void setNumCategorie(int numCategorie) {
+		this.numCategorie = numCategorie;
 	}
 
 	public String getLibelle() {
@@ -37,7 +37,7 @@ public class Categorie {
 
 	@Override
 	public String toString() {
-		return "Categorie [no_categorie=" + no_categorie 
+		return "Categorie [numCategorie=" + numCategorie 
 				+ ", libelle=" + libelle 
 				+ "]";
 	}

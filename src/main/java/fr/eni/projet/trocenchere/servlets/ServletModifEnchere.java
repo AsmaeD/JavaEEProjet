@@ -82,7 +82,7 @@ public class ServletModifEnchere extends HttpServlet {
 								
 								for (Categorie categorie : listeDeCategories) 
 									{
-										if(categorie.getNoCategorie() == articleAModifier.getNoCategorie())
+										if(categorie.getNo_categorie() == articleAModifier.getNumeroCategorie())
 											{
 												categorieArticleSelected = categorie.getLibelle();
 											}
@@ -146,7 +146,7 @@ public class ServletModifEnchere extends HttpServlet {
 									String suppressionArticle = "La suppression de l'article à la vente est effectuée";
 									request.setAttribute("resultatEnchere", suppressionArticle);
 									RetraitManager retraitManager = RetraitManager.getInstance();
-									retraitManager.supprimerRetrait(articleAModifier.getNoArticle());
+									retraitManager.supprimer(articleAModifier.getNoArticle());
 									RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
 									rd.forward(request, response);
 								}
@@ -274,14 +274,14 @@ public class ServletModifEnchere extends HttpServlet {
 					for (Categorie categorie2 : categories) {
 						if(categorie2.getLibelle() == categorie)
 							{
-								idCategorie = categorie2.getNoCategorie();
+								idCategorie = categorie2.getNo_categorie();
 							}
 					}
 					
 					
 					articleARenvoyer.setDescription(description);
 					articleARenvoyer.setMiseAPrix(miseAPrix);
-					articleARenvoyer.setNoCategorie(idCategorie);
+					articleARenvoyer.setNumeroCategorie(idCategorie);
 					articleARenvoyer.setDateDebutEncheres(dateDebutEncheres);
 					articleARenvoyer.setDateFinEncheres(dateFinEncheres);
 					if(images != null)

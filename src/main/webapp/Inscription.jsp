@@ -81,13 +81,13 @@
 		
 					<div class= "InscriptionBouttons">
 						<div class="Inscriptiondivbtna">				
-							<a href="<%=request.getContextPath()%>/Accueil">
+							<a href="<%=request.getContextPath()%>/index.jsp">
 		                       <input type="submit" value="Créer" class="btn btn-primary mb-2 InscriptionBtnEspace"/></a>
 							</div>
 						
 		 			
 							<div class="Inscriptiondivbtnb">
-								<a href="<%=request.getContextPath()%>/Accueil">
+								<a href="<%=request.getContextPath()%>/index.jsp">
 		                       <input type="button" value="Annuler" class="btn btn-primary mb-2"/></a>
 							</div>
 				

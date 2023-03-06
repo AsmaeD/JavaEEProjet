@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.eni.encheres.bll.BusinessException;
-import fr.eni.encheres.bll.UtilisateurManager;
+import fr.eni.projet.trocenchere.bll.BusinessException;
+import fr.eni.projet.trocenchere.bll.UtilisateurManager;
 
 /**
  * Servlet implementation class ServletConnection
  */
 @WebServlet(
-		urlPatterns = {"/Connection", "/deconnexion"}
+		urlPatterns = {"/Connexion", "/deconnexion"}
 				)
 public class ServletConnection extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -52,14 +52,14 @@ public class ServletConnection extends HttpServlet {
 			
 		}
 		
-		if (request.getServletPath().equals("/Connection"))
+		if (request.getServletPath().equals("/Connexion"))
 		{
 			if (request.getSession().getAttribute("Utilisateur") == null) {
-				RequestDispatcher rd  = request.getRequestDispatcher("/WEB-INF/JSP/Connection.jsp");
+				RequestDispatcher rd  = request.getRequestDispatcher("Connexion.jsp");
 				rd.forward(request, response);
 			}
 			else {
-				response.sendRedirect(request.getContextPath()+"/Accueil");
+				response.sendRedirect(request.getContextPath()+"/index");
 			}
 		
 		}
@@ -91,7 +91,7 @@ public class ServletConnection extends HttpServlet {
 				if (testConnection == false)
 				{
 					request.setAttribute("testConnection", testConnection);
-					RequestDispatcher rd  = request.getRequestDispatcher("/WEB-INF/JSP/Connection.jsp");
+					RequestDispatcher rd  = request.getRequestDispatcher("Connexion.jsp");
 					rd.forward(request, response);
 
 				}

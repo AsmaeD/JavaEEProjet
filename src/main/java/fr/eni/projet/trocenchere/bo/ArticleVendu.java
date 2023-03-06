@@ -1,23 +1,27 @@
 package fr.eni.projet.trocenchere.bo;
 
+import java.time.LocalDate;
+
 public class ArticleVendu {
 
 	private int noArticle;
 	private String nomArticle;
 	private String description;
-	private String dateDebutEncheres;
-	private String dateFinEncheres;
+	private LocalDate dateDebutEncheres;
+	private LocalDate dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
-	private String etatVente;
+	private int etatVente;
+	private byte[] imageArticle;
+	private String image;
 	
 	private Utilisateur utilisateur;
 	int numeroCategorie;
 	
 	// Constructeur avec tous les attributs
 	
-	public ArticleVendu(int noArticle, String nomArticle, String description, String dateDebutEncheres,
-			String dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
+	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
+			LocalDate dateFinEncheres, int miseAPrix, int prixVente, int etatVente) {
 		
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
@@ -31,8 +35,8 @@ public class ArticleVendu {
 	
 	// Constructeur sans le numéro d'article
 
-	public ArticleVendu(String nomArticle, String description, String dateDebutEncheres, String dateFinEncheres,
-			int miseAPrix, int prixVente, String etatVente) {
+	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			int miseAPrix, int prixVente, int etatVente) {
 
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -44,6 +48,11 @@ public class ArticleVendu {
 	}
 
 	public ArticleVendu() {
+	}
+
+	public ArticleVendu(String nomArticle2, String description2, LocalDate dateDebutEncheres2,
+			LocalDate dateFinEncheres2, int miseAPrix2, byte[] images) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getNoArticle() {
@@ -70,19 +79,19 @@ public class ArticleVendu {
 		this.description = description;
 	}
 
-	public String getDateDebutEncheres() {
+	public LocalDate getDateDebutEncheres() {
 		return dateDebutEncheres;
 	}
 
-	public void setDateDebutEncheres(String dateDebutEncheres) {
-		this.dateDebutEncheres = dateDebutEncheres;
+	public void setDateDebutEncheres(LocalDate dateDebutEncheres2) {
+		this.dateDebutEncheres = dateDebutEncheres2;
 	}
 
-	public String getDateFinEncheres() {
+	public LocalDate getDateFinEncheres() {
 		return dateFinEncheres;
 	}
 
-	public void setDateFinEncheres(String dateFinEncheres) {
+	public void setDateFinEncheres(LocalDate dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 
@@ -102,11 +111,11 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 	}
 
-	public String getEtatVente() {
+	public int getEtatVente() {
 		return etatVente;
 	}
 
-	public void setEtatVente(String etatVente) {
+	public void setEtatVente(int etatVente) {
 		this.etatVente = etatVente;
 	}
 
@@ -124,6 +133,20 @@ public class ArticleVendu {
 
 	public void setNumeroCategorie(int numeroCategorie) {
 		this.numeroCategorie = numeroCategorie;
+	}
+	
+	/**
+	 * @return the imageArticle
+	 */
+	public byte[] getImageArticle() {
+		return imageArticle;
+	}
+
+	/**
+	 * @param imageArticle the imageArticle to set
+	 */
+	public void setImageArticle(byte[] imageArticle) {
+		this.imageArticle = imageArticle;
 	}
 
 	@Override

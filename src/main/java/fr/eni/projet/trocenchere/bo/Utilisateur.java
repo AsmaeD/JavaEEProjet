@@ -51,7 +51,20 @@ public class Utilisateur {
 		this.credit = credit;
 		this.administrateur = administrateur;
 	}
-
+	
+	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, String codePostale, String ville, String motDePasse ) {
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostale;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+	}
+	
 	public Utilisateur() {
 	}
 
@@ -149,6 +162,10 @@ public class Utilisateur {
 
 	public void setAdministrateur(byte administrateur) {
 		this.administrateur = administrateur;
+	}
+	
+	public Integer getNoUtilisateur() {
+		return no_utilisateur;
 	}
 
 	@Override

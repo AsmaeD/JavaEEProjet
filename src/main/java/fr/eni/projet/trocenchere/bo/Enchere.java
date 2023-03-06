@@ -1,8 +1,11 @@
 package fr.eni.projet.trocenchere.bo;
 
+
+import java.time.chrono.ChronoLocalDate;
+
 public class Enchere {
 	
-	private String dateEnchere;
+	private ChronoLocalDate dateEnchere;
 	private int montant_enchere;
 	
 	private Utilisateur utilisateur;
@@ -10,7 +13,7 @@ public class Enchere {
 	
 	// Constructeur avec tous les attributs
 	
-	public Enchere(String dateEnchere, int montant_enchere) {
+	public Enchere(ChronoLocalDate dateEnchere, int montant_enchere) {
 		
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
@@ -19,11 +22,11 @@ public class Enchere {
 	public Enchere() {
 	}
 
-	public String getDateEnchere() {
+	public ChronoLocalDate getDateEnchere() {
 		return dateEnchere;
 	}
 
-	public void setDateEnchere(String dateEnchere) {
+	public void setDateEnchere(ChronoLocalDate dateEnchere) {
 		this.dateEnchere = dateEnchere;
 	}
 

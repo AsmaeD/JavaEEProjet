@@ -114,7 +114,7 @@ public class ServletDetailVente extends HttpServlet {
 							UtilisateurManager userManager = UtilisateurManager.getInstance();
 							Utilisateur encherisseur = userManager.recuperationUtilisateur(pseudoEncherisseur);
 							boolean creditSuffisant = userManager.effectuerEnchere(encherisseur, montantEnchere);
-							int idEncherisseur = encherisseur.getNoUtilisateur();
+							int idEncherisseur = encherisseur.getNo_utilisateur();
 						if(creditSuffisant == true) 
 						{
 							EnchereManager enchereManager = EnchereManager.getInstance();

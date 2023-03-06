@@ -5,11 +5,21 @@ import fr.eni.projet.trocenchere.bo.Retrait;
 
 public class RetraitManager {
 	
+	private static RetraitManager instance;
 	private DAO<Retrait> retraitDAO;
 
 	public RetraitManager() {
 		this.retraitDAO = DAOFactory.getRetraitDAO;
 	}
+	
+	public static synchronized RetraitManager getInstance() {
+		if(instance==null)
+		{
+			instance = new RetraitManager();
+		}
+		return instance;
+	}
+	
 
 	public void ajouter(Retrait retrait) throws BusinessException {
 		BusinessException exception = new BusinessException();
@@ -30,9 +40,16 @@ public class RetraitManager {
 		}
 	}
 	
-	public void supprimer(Retrait retrait) {
+	public void supprimer(int i) {
 		
-		this.retraitDAO.delete(retrait);
+		this.retraitDAO.delete(i);
+	}
+	
+	//Supprimer le retrait par l'id d'un article
+	public void supprimerRetrait(int noArticle) throws BusinessException{
+		
+		retraitDAO.deleteRetrait(noArticle);
+		
 	}
 	
 	public Retrait selectionnerRetrait(Retrait retrait) {
@@ -58,5 +75,31 @@ public class RetraitManager {
 		{
 			businessException.ajouterErreur(CodesErreurBLL.REGLE_LONGUEUR_MAX);
 		}
+	}
+	
+	//Récupérer un point de retrait pour un article
+	
+	public Retrait recupererRetraitByID(int idArticle) throws BusinessException{
+		Retrait retrait = null;
+		retrait = retraitDAO.getRetraitByID(idArticle);
+		return retrait;
+	}
+	
+	public void updateRetrait(Retrait retrait, int idArticleAModifier) throws BusinessException {
+		retraitDAO.updateRetrait(retrait, idArticleAModifier);
+		
+	}
+	
+	//Ajout d'un lieu de retrait à l'ajout de l'article
+	
+	public void ajouterRetrait(Retrait retrait, int idArticle) throws BusinessException{
+		String ville = retrait.getVille();
+		String rue = retrait.getRue();
+		String cp = retrait.getCodePostal();
+		
+		if(ville !=null && rue != null && cp != null)
+			{
+				retraitDAO.addRetrait(retrait, idArticle);
+			}
 	}
 }

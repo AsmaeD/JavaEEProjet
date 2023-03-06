@@ -81,7 +81,7 @@ public class ServletAccueil extends HttpServlet {
 
 			
 			
-			RequestDispatcher rd  = request.getRequestDispatcher("/WEB-INF/index.jsp");
+			RequestDispatcher rd  = request.getRequestDispatcher("/index.jsp");
 			rd.forward(request, response);	
 		
 		} catch (Exception e) {
@@ -182,7 +182,7 @@ public class ServletAccueil extends HttpServlet {
 		
 		// afficher la page
 		
-		RequestDispatcher rd  = request.getRequestDispatcher("/WEB-INF/index.jsp");
+		RequestDispatcher rd  = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);	
 		
 	}

@@ -24,7 +24,7 @@ public class ServletInscription extends HttpServlet {
     
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Inscription.jsp") ;
+		RequestDispatcher rd = request.getRequestDispatcher("Inscription.jsp") ;
 		rd.forward(request, response);
 	}
 
@@ -64,7 +64,7 @@ public class ServletInscription extends HttpServlet {
 				if(validationMandP == false) {		
 					request.setAttribute("validationMandP", validationMandP);
 					request.setAttribute("utilisateurU", utilisateurU);
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Inscription.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("Inscription.jsp");
 					rd.forward(request, response);
 				}
 			} 
@@ -73,14 +73,14 @@ public class ServletInscription extends HttpServlet {
 				validationMDP = true;
 				request.setAttribute("validationMDP", validationMDP);
 				request.setAttribute("utilisateurU", utilisateurU);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Inscription.jsp") ;
+				RequestDispatcher rd = request.getRequestDispatcher("Inscription.jsp") ;
 				rd.forward(request, response);
 			}
 			
 		
 			HttpSession session = request.getSession(true);
 			session.setAttribute("Utilisateur", utilisateurU.getPseudo());
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp") ;
+			RequestDispatcher rd = request.getRequestDispatcher("/Accueil") ;
 			rd.forward(request, response);
 			
 			

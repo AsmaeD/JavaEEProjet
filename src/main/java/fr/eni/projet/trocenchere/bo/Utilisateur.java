@@ -72,11 +72,11 @@ public class Utilisateur {
 	public Utilisateur() {
 	}
 
-	public int getnumUtilisateur() {
+	public int getNumUtilisateur() {
 		return numUtilisateur;
 	}
 
-	public void setnumUtilisateur(int numUtilisateur) {
+	public void setNumUtilisateur(int numUtilisateur) {
 		this.numUtilisateur = numUtilisateur;
 	}
 

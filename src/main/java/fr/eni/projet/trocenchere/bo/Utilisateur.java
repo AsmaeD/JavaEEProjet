@@ -2,7 +2,7 @@ package fr.eni.projet.trocenchere.bo;
 
 public class Utilisateur {
 
-	private int no_utilisateur;
+	private int numUtilisateur;
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -16,7 +16,7 @@ public class Utilisateur {
 	private boolean administrateur;
 
 	public Utilisateur(
-			int no_utilisateur, 
+			int numUtilisateur, 
 			String pseudo, 
 			String nom, 
 			String prenom, 
@@ -29,7 +29,7 @@ public class Utilisateur {
 			int credit, 
 			boolean administrateur) {
 
-		this.no_utilisateur = no_utilisateur;
+		this.numUtilisateur = numUtilisateur;
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -72,12 +72,12 @@ public class Utilisateur {
 	public Utilisateur() {
 	}
 
-	public int getNo_utilisateur() {
-		return no_utilisateur;
+	public int getnumUtilisateur() {
+		return numUtilisateur;
 	}
 
-	public void setNo_utilisateur(int no_utilisateur) {
-		this.no_utilisateur = no_utilisateur;
+	public void setnumUtilisateur(int numUtilisateur) {
+		this.numUtilisateur = numUtilisateur;
 	}
 
 	public String getPseudo() {
@@ -171,7 +171,7 @@ public class Utilisateur {
 	@Override
 	public String toString() {
 		return "Utilisateur ["
-				+ "no_utilisateur=" + no_utilisateur 
+				+ "numUtilisateur=" + numUtilisateur 
 				+ ", pseudo=" + pseudo 
 				+ ", nom=" + nom 
 				+ ", prenom=" + prenom 

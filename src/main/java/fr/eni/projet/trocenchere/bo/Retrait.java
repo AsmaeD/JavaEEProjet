@@ -7,10 +7,18 @@ public class Retrait {
 	private String ville;
 	
 	private ArticleVendu articleVendu;
+<<<<<<< HEAD
 	
 	// Constructeur avec tous les attributs
 
 	public Retrait(String rue, String code_postal, String ville) {
+=======
+
+	public Retrait(
+			String rue, 
+			String code_postal, 
+			String ville) {
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 		
 		this.rue = rue;
 		this.code_postal = code_postal;
@@ -44,6 +52,7 @@ public class Retrait {
 		this.ville = ville;
 	}
 
+<<<<<<< HEAD
 	public ArticleVendu getArticleVendu() {
 		return articleVendu;
 	}
@@ -56,6 +65,15 @@ public class Retrait {
 	public String toString() {
 		return "Retrait [rue=" + rue + ", code_postal=" + code_postal + ", ville=" + ville + ", articleVendu="
 				+ articleVendu + "]";
+=======
+	@Override
+	public String toString() {
+		return "Retrait [rue=" + rue 
+				+ ", code_postal=" + code_postal 
+				+ ", ville=" + ville 
+				+ ", articleVendu=" + articleVendu 
+				+ "]";
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 	}
 	
 }

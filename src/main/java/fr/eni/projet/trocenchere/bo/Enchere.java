@@ -8,9 +8,15 @@ public class Enchere {
 	private Utilisateur utilisateur;
 	private ArticleVendu articleVendu;
 	
+<<<<<<< HEAD
 	// Constructeur avec tous les attributs
 	
 	public Enchere(String dateEnchere, int montant_enchere) {
+=======
+	public Enchere(
+			String dateEnchere, 
+			int montant_enchere) {
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 		
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
@@ -53,8 +59,15 @@ public class Enchere {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + ", articleVendu="
 				+ articleVendu + "]";
+=======
+		return "Enchere [dateEnchere=" + dateEnchere 
+				+ ", montant_enchere=" + montant_enchere 
+				+ ", articleVendu=" + articleVendu 
+				+ "]";
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 	}
 	
 }

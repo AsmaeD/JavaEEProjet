@@ -2,7 +2,11 @@ package fr.eni.projet.trocenchere.bo;
 
 public class Utilisateur {
 
+<<<<<<< HEAD
 	private int no_utilisateur;
+=======
+	private int numUtilisateur;
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -13,6 +17,7 @@ public class Utilisateur {
 	private String ville;
 	private String motDePasse;
 	private int credit;
+<<<<<<< HEAD
 	private byte administrateur;
 	
 	// Constructeur avec tous les attributs
@@ -21,6 +26,25 @@ public class Utilisateur {
 			String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
 
 		this.no_utilisateur = no_utilisateur;
+=======
+	private boolean administrateur;
+
+	public Utilisateur(
+			int numUtilisateur, 
+			String pseudo, 
+			String nom, 
+			String prenom, 
+			String email, 
+			String telephone,
+			String rue,
+			String codePostal, 
+			String ville, 
+			String motDePasse, 
+			int credit, 
+			boolean administrateur) {
+
+		this.numUtilisateur = numUtilisateur;
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -34,10 +58,25 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 	
+<<<<<<< HEAD
 	// Constructeur sans le numéro d'utilisateur
 	
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
+=======
+	public Utilisateur(
+			String pseudo, 
+			String nom, 
+			String prenom, 
+			String email,
+			String telephone, 
+			String rue,
+			String codePostal,
+			String ville, 
+			String motDePasse, 
+			int credit, 
+			boolean administrateur) {
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -55,12 +94,21 @@ public class Utilisateur {
 	public Utilisateur() {
 	}
 
+<<<<<<< HEAD
 	public int getNo_utilisateur() {
 		return no_utilisateur;
 	}
 
 	public void setNo_utilisateur(int no_utilisateur) {
 		this.no_utilisateur = no_utilisateur;
+=======
+	public int getNumUtilisateur() {
+		return numUtilisateur;
+	}
+
+	public void setNumUtilisateur(int numUtilisateur) {
+		this.numUtilisateur = numUtilisateur;
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 	}
 
 	public String getPseudo() {
@@ -143,20 +191,45 @@ public class Utilisateur {
 		this.credit = credit;
 	}
 
+<<<<<<< HEAD
 	public byte getAdministrateur() {
 		return administrateur;
 	}
 
 	public void setAdministrateur(byte administrateur) {
+=======
+	public boolean getAdministrateur() {
+		return administrateur;
+	}
+
+	public void setAdministrateur(boolean administrateur) {
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 		this.administrateur = administrateur;
 	}
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
 				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
 				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
 				+ ", administrateur=" + administrateur + "]";
+=======
+		return "Utilisateur ["
+				+ "numUtilisateur=" + numUtilisateur 
+				+ ", pseudo=" + pseudo 
+				+ ", nom=" + nom 
+				+ ", prenom=" + prenom 
+				+ ", email=" + email 
+				+ ", telephone=" + telephone 
+				+ ", rue=" + rue 
+				+ ", codePostal=" + codePostal 
+				+ ", ville=" + ville 
+				+ ", motDePasse=" + motDePasse 
+				+ ", credit=" + credit
+				+ ", administrateur=" + administrateur 
+				+ "]";
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 	}
 	
 }

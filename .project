@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>JavaEEProjet2</name>
+=======
+	<name>JavaEEProjet</name>
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
 	<comment></comment>
 	<projects>
 	</projects>

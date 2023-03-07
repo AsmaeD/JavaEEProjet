@@ -14,7 +14,7 @@ import java.util.List;
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 
 /****************************************************************************************/
-/*BEGIN STRING CONSTANTS */
+		/*BEGIN SQL QUERIES */
 /****************************************************************************************/  
 	//TODO Check all class attributes -> possibly changed
 	private static final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS" ;
@@ -91,7 +91,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 	
 	
 /****************************************************************************************/
-	/*BEGIN METHODS SELECT*/
+		/*BEGIN METHODS SELECT*/
 /****************************************************************************************/
 	
 	@Override
@@ -239,7 +239,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 	
 	
 /****************************************************************************************/
-	/*BEGIN METHOD INSERT */
+		/*BEGIN METHOD INSERT */
 /****************************************************************************************/
 	
 	@Override
@@ -302,7 +302,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 	}
 
 /****************************************************************************************/
-	/*BEGIN METHOD DELETE */
+		/*BEGIN METHOD DELETE */
 /****************************************************************************************/
 	
 	@Override
@@ -323,7 +323,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 
 	
 /****************************************************************************************/
-	/*BEGIN METHOD UPDATE */
+		/*BEGIN METHOD UPDATE */
 /****************************************************************************************/
 	
 	@Override

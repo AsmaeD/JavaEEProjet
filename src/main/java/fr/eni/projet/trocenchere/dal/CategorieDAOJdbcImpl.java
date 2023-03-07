@@ -14,7 +14,7 @@ public class CategorieDAOJdbcImpl implements DAO<Categorie> {
 	
 	
 /****************************************************************************************/
-	/*BEGIN STRING CONSTANTS */
+	/*BEGIN SQL QUERIES */
 /****************************************************************************************/
 	
 
@@ -23,13 +23,14 @@ public class CategorieDAOJdbcImpl implements DAO<Categorie> {
 			+ "no_categorie, " 
 			+ "libelle " 
 			+ "FROM CATEGORIES "
-			+ "WHERE no_categorie = ? "
-			+ ";" ;
+			+ "WHERE no_categorie = ? ;" ;
 		private static final String INSERT_CATEGORIE = "INSERT INTO CATEGORIES("
 			+ "libelle) "
 			+ "VALUES (?);"  ;
 		private static final String DELETE_CATEGORIE = "DELETE FROM UTILISATEURS WHERE no_categorie = ? ;"  ;
-		//TODO ADD UPDATE
+		private static final String UPDATE_CATEGORIE = "UPDATE CATEGORIES SET "
+			+ "libelle = ? "
+			+ "WHERE no_category = ? ;" ;
 	
 /****************************************************************************************/
 	/*BEGIN METHODS SELECT*/
@@ -164,7 +165,35 @@ public class CategorieDAOJdbcImpl implements DAO<Categorie> {
 
 	@Override
 	public void update(Categorie category) throws BusinessException {
-		// TODO update
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			try
+			{
+				PreparedStatement pstmt;
+				//must check if num user indeed exists
+				//which error when it is'nt the case ?
+				pstmt = cnx.prepareStatement(UPDATE_CATEGORIE, category.getNumCategorie());
+				//veri if rank == rank in database or rank in string statement
+				pstmt.setString(1,category.libelle()) ;
+				pstmt.executeUpdate() ;
+				pstmt.close() ;
+				
+				cnx.commit() ;
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				cnx.rollback();
+				throw e;
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			//businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
+			throw businessException;
+		}
 		
 	}
 

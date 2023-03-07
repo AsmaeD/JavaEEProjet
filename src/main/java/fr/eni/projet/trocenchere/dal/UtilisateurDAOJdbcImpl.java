@@ -16,7 +16,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 	
 	
 /****************************************************************************************/
-	/*BEGIN STRING CONSTANTS */
+	/*BEGIN SQL QUERIES */
 /****************************************************************************************/
 	
 	//declaration of all constants of sql requests
@@ -253,6 +253,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 				PreparedStatement pstmt;
 				//must check if num user indeed exists
 				//which error when it is'nt the case ?
+				//be careful here check if it is the correct syntaxe : see select id for reference
 				pstmt = cnx.prepareStatement(UPDATE_USER, user.getNumUtilisateur());
 				//veri if rank == rank in database or rank in string statement
 				pstmt.setString(1,user.getEmail()) ;

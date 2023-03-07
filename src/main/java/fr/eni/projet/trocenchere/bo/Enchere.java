@@ -9,7 +9,7 @@ public class Enchere {
 	private int articleVendu;
 	
 	public Enchere(
-			String dateEnchere, 
+			iny dateEnchere, 
 			int montant_enchere) {
 		
 		this.dateEnchere = dateEnchere;
@@ -19,11 +19,11 @@ public class Enchere {
 	public Enchere() {
 	}
 
-	public String getDateEnchere() {
+	public int getDateEnchere() {
 		return dateEnchere;
 	}
 
-	public void setDateEnchere(String dateEnchere) {
+	public void setDateEnchere(int dateEnchere) {
 		this.dateEnchere = dateEnchere;
 	}
 

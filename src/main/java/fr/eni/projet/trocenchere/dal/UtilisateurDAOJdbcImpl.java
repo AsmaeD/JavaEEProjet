@@ -11,8 +11,14 @@ import java.util.List;
 import fr.eni.projet.trocechere.BusinessException;
 import fr.eni.projet.trocenchere.bo.Utilisateur;
 
-public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
+public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE TO PROJECT
 
+	
+	
+/****************************************************************************************/
+	/*BEGIN STRING CONSTANTS */
+/****************************************************************************************/
+	
 	//declaration of all constants of sql requests
 	//TODO be careful woth unicité couple pseudo mot de passe à définir encore
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS" ;
@@ -59,22 +65,10 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			+ "administrateur = ? "
 			+ "WHERE pseudo = ? ;" ;
 	
-	@Override//check arg 
-	public void delete(String pseudo) throws BusinessException {
-		try(Connection cnx = ConnectionProvider.getConnection())
-		{
-			PreparedStatement pstmt = cnx.prepareStatement(DELETE_USER);
-			//verify if starts with 1, arg in DELETE_USER or 2 rank in database
-			pstmt.setString(1, pseudo);
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			BusinessException businessException = new BusinessException();
-			//businessException.ajouterErreur(CodesResultatDAL.SUPPRESSION_LISTE_ERREUR);
-			throw businessException;
-		}
-		
-	}
+	
+/****************************************************************************************/
+	/*BEGIN METHODS SELECT*/
+/****************************************************************************************/
 
 	@Override
 	public List<Utilisateur> selectAll() throws BusinessException {
@@ -111,9 +105,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		}
 		return listeUtilisateurs;
 	}
-
+	
 	@Override
-	public Utilisateur selectByPseudo(String pseudo) throws BusinessException {
+	public Utilisateur selectById(String pseudo) throws BusinessException {
 		//initialisation
 		//might not be a good idea
 		Utilisateur user = null ;
@@ -151,6 +145,10 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		return user;
 	}
 
+/****************************************************************************************/
+	/*BEGIN METHOD INSERT */
+/****************************************************************************************/
+	
 	@Override
 	public void insert(Utilisateur user) throws BusinessException {
 		//verify is user is null
@@ -189,14 +187,15 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				
 				
 				pstmt.executeUpdate();
-				rs = pstmt.getGeneratedKeys();
-				if(rs.next())
-				{
-					user.setNumUtilisateur(rs.getInt(1));
-				}
-				rs.close();
-				pstmt.close();
-				cnx.commit();
+//				//TODO check if necessary
+//				rs = pstmt.getGeneratedKeys();
+//				if(rs.next())
+//				{
+//					user.setNumUtilisateur(rs.getInt(1));
+//				}
+//				rs.close();
+//				pstmt.close();
+//				cnx.commit();
 			}
 			catch(Exception e)
 			{
@@ -215,6 +214,33 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		
 		
 	}
+	
+/****************************************************************************************/
+	/*BEGIN METHOD DELETE */
+/****************************************************************************************/
+	
+	@Override//check arg 
+	public void delete(String pseudo) throws BusinessException {
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(DELETE_USER);
+			//verify if starts with 1, arg in DELETE_USER or 2 rank in database
+			pstmt.setString(1, pseudo);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			//businessException.ajouterErreur(CodesResultatDAL.SUPPRESSION_LISTE_ERREUR);
+			throw businessException;
+		}
+		
+	}
+
+	
+/****************************************************************************************/
+	/*BEGIN METHOD UPDATE */
+/****************************************************************************************/
+	
 
 	@Override
 	public void update(Utilisateur user) throws BusinessException {

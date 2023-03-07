@@ -5,8 +5,8 @@ public class Enchere {
 	private String dateEnchere;
 	private int montant_enchere;
 	
-	private Utilisateur utilisateur;
-	private ArticleVendu articleVendu;
+	private int utilisateur;
+	private int articleVendu;
 	
 	public Enchere(
 			String dateEnchere, 
@@ -35,19 +35,19 @@ public class Enchere {
 		this.montant_enchere = montant_enchere;
 	}
 
-	public Utilisateur getUtilisateur() {
+	public int getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
+	public void setUtilisateur(int utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 
-	public ArticleVendu getArticleVendu() {
+	public int getArticleVendu() {
 		return articleVendu;
 	}
 
-	public void setArticleVendu(ArticleVendu articleVendu) {
+	public void setArticleVendu(int articleVendu) {
 		this.articleVendu = articleVendu;
 	}
 

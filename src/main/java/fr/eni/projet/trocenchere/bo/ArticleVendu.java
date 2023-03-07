@@ -11,8 +11,8 @@ public class ArticleVendu {
 	private int prixVente;
 	private String etatVente;
 	
-	private Utilisateur utilisateur;
-	private Categorie categorie;
+	private int utilisateur;
+	private int categorie;
 	
 	public ArticleVendu(
 			int noArticle, 
@@ -22,7 +22,9 @@ public class ArticleVendu {
 			int dateFinEncheres, 
 			int miseAPrix, 
 			int prixVente, 
-			String etatVente) {
+			String etatVente,
+			int uti,
+			int cat) {
 		
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
@@ -32,6 +34,8 @@ public class ArticleVendu {
 		this.miseAPrix = miseAPrix;
 		this.prixVente = prixVente;
 		this.etatVente = etatVente;
+		this.utilisateur = uti ;
+		this.categorie = cat ;
 	}
 
 	public ArticleVendu(
@@ -41,7 +45,9 @@ public class ArticleVendu {
 			int dateFinEncheres,
 			int miseAPrix, 
 			int prixVente, 
-			String etatVente) {
+			String etatVente,
+			int uti,
+			int cat) {
 
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -50,10 +56,22 @@ public class ArticleVendu {
 		this.miseAPrix = miseAPrix;
 		this.prixVente = prixVente;
 		this.etatVente = etatVente;
+		this.utilisateur = uti ;
+		this.categorie = cat ;
 	}
 
 	public ArticleVendu() {
 	}
+
+	
+	public void setUtilisateur(int utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	public void setCategorie(int categorie) {
+		this.categorie = categorie;
+	}
+
 
 	public int getNoArticle() {
 		return noArticle;
@@ -119,21 +137,14 @@ public class ArticleVendu {
 		this.etatVente = etatVente;
 	}
 
-	public Utilisateur getUtilisateur() {
+	public int getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
-	}
-
-	public Categorie getCategorie() {
+	public int getCategorie() {
 		return categorie;
 	}
 
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
-	}
 
 	@Override
 	public String toString() {

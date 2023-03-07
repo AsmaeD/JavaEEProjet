@@ -12,6 +12,8 @@ import java.util.List;
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 	//TODO Check all class attributes -> possibly changed
 	private static final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS" ;
+	private static final String SELECT_BY_NOM = "SELECT * FROM ARTICLES_VENDUS WHERE nom_article LIKE '%?%'";
+	private static final String SELECT_BY_CAT = "SELECT * FROM ARTICLES_VENDUS WHERE no_categorie=?";
 	private static final String SELECT_BY_ID = "SELECT " 
 			+ "no_article, " 
 			+ "nom_article, " 
@@ -104,6 +106,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 		}
 		return article;
 	}
+	
+	
 
 	@Override
 	public List<ArticleVendu> selectAll() throws BusinessException {
@@ -112,6 +116,73 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 		try(Connection cnx = ConnectionProvider.getConnection())
 		{
 			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ALL);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next())
+			{
+				listeArticles.add(new ArticleVendu(
+						rs.getInt(1), 
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getInt(5),
+						rs.getInt(6),
+						rs.getInt(7),
+						rs.getString(8)
+						)
+					);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTES_ECHEC);
+			throw businessException;
+		}
+		return listeArticles;
+	}
+	
+	@Override
+	public List<ArticleVendu> selectByNom(ArticleVendu article) throws BusinessException {
+		List<ArticleVendu> listeArticles = new ArrayList<ArticleVendu>() ;
+
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_NOM);
+			pstmt.setString(1, article.getNomArticle());
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next())
+			{
+				listeArticles.add(new ArticleVendu(
+						rs.getInt(1), 
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getInt(5),
+						rs.getInt(6),
+						rs.getInt(7),
+						rs.getString(8)
+						)
+					);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTES_ECHEC);
+			throw businessException;
+		}
+		return listeArticles;
+	}
+
+	public List<ArticleVendu> selectByCat(ArticleVendu article) throws BusinessException {
+		List<ArticleVendu> listeArticles = new ArrayList<ArticleVendu>() ;
+
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_CAT);
+			pstmt.setInt(1, article.getNumeroCategorie());
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next())
 			{

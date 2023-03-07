@@ -5,6 +5,8 @@ public class DAOFactory {
 	//TODO adapt to DAO generic type
 	
 	public static UtilisateurDAO getUtilisateurDAO()  {
+	
+	//TODO ADD OTHER DAOs
 		UtilisateurDAO utilisateurDAO=null;
 		try {
 			utilisateurDAO=(UtilisateurDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.UtilisateurDAOJdbcImpl").newInstance();

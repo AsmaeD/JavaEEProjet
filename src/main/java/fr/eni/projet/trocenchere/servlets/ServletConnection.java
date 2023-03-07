@@ -47,7 +47,7 @@ public class ServletConnection extends HttpServlet {
 				
 				request.getSession().invalidate();
 				
-				response.sendRedirect(request.getContextPath()+"/Accueil");
+				response.sendRedirect(request.getContextPath()+"/index.jsp");
 			}
 			
 		}
@@ -55,11 +55,11 @@ public class ServletConnection extends HttpServlet {
 		if (request.getServletPath().equals("/Connexion"))
 		{
 			if (request.getSession().getAttribute("Utilisateur") == null) {
-				RequestDispatcher rd  = request.getRequestDispatcher("Connexion.jsp");
+				RequestDispatcher rd  = request.getRequestDispatcher("/Connexion.jsp");
 				rd.forward(request, response);
 			}
 			else {
-				response.sendRedirect(request.getContextPath()+"/index");
+				response.sendRedirect(request.getContextPath()+"/index.jsp");
 			}
 		
 		}
@@ -91,7 +91,7 @@ public class ServletConnection extends HttpServlet {
 				if (testConnection == false)
 				{
 					request.setAttribute("testConnection", testConnection);
-					RequestDispatcher rd  = request.getRequestDispatcher("Connexion.jsp");
+					RequestDispatcher rd  = request.getRequestDispatcher("/Connexion.jsp");
 					rd.forward(request, response);
 
 				}
@@ -110,7 +110,7 @@ public class ServletConnection extends HttpServlet {
 						
 					}
 					
-					response.sendRedirect(request.getContextPath()+"/Accueil");
+					response.sendRedirect(request.getContextPath()+"/index.jsp");
 	
 				}
 

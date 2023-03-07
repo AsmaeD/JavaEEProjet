@@ -80,7 +80,7 @@ public class ServletInscription extends HttpServlet {
 		
 			HttpSession session = request.getSession(true);
 			session.setAttribute("Utilisateur", utilisateurU.getPseudo());
-			RequestDispatcher rd = request.getRequestDispatcher("/Accueil") ;
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp") ;
 			rd.forward(request, response);
 			
 			

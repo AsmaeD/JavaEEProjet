@@ -22,7 +22,7 @@
 			</div>
 		</c:if>
 	
-		<form action="Connection" method="post">
+		<form action="Connexion" method="post">
 			<p>
 				<label for ="Identifiant">Indentifiant: </label>
 				<input type="text" name="Identifiant" id="Identifiant" required="required">

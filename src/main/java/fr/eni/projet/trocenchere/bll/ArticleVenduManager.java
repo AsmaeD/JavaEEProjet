@@ -54,7 +54,7 @@ public class ArticleVenduManager {
 
 	}
 	
-	//Suppression de l'article avant la date de fin  de l'enchère n'est pas terminée
+	/*Suppression de l'article avant la date de fin  de l'enchère n'est pas terminée
 		public  boolean cancelArticleVendu(ArticleVendu article) throws BusinessException {
 			boolean articleSupprime = false;
 			int idarticle = article.getNoArticle();
@@ -64,7 +64,7 @@ public class ArticleVenduManager {
 				
 			}
 			return articleSupprime;
-		}
+		}*/
 	
 	public List<ArticleVendu> selectionnerTousLesArticles() {
 		return this.articleDAO.selectAll();
@@ -114,7 +114,7 @@ public class ArticleVenduManager {
 	}
 	
 	//Récupération de tous les articles selon le filtre de l'accueil
-	public List<ArticleVendu> getListeEtatVente(String motcle ,Integer ouvertes , Integer encours, Integer terminees, int numCategorie, int categoriesMax, String pseudoAchat, String pseudoVente) throws BusinessException{
+	/*public List<ArticleVendu> getListeEtatVente(String motcle ,Integer ouvertes , Integer encours, Integer terminees, int numCategorie, int categoriesMax, String pseudoAchat, String pseudoVente) throws BusinessException{
 		List<ArticleVendu> lstArticle = new ArrayList<ArticleVendu>();
 		//int idEtatVente= transcriptEtatVenteToID(etatVente);
 
@@ -155,5 +155,5 @@ public class ArticleVenduManager {
 			idNouvelleVente = articleVenduDAO.addArticleVendu(article, idvendeur, categorie);
 			
 			return idNouvelleVente;
-		}
+		}*/
 }

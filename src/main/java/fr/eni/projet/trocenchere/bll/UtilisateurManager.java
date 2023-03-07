@@ -1,6 +1,10 @@
 package fr.eni.projet.trocenchere.bll;
 
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import java.util.Properties;
+
+import javax.websocket.Session;
 
 import fr.eni.projet.trocenchere.bo.Retrait;
 import fr.eni.projet.trocenchere.bo.Utilisateur;

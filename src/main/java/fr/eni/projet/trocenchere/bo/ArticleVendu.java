@@ -10,14 +10,37 @@ public class ArticleVendu {
 	private int noArticle;
 	private String nomArticle;
 	private String description;
+<<<<<<< HEAD
 	private int dateDebutEncheres;
 	private int dateFinEncheres;
+=======
+<<<<<<< HEAD
+	private String dateDebutEncheres;
+	private String dateFinEncheres;
+=======
+	private int dateDebutEncheres;
+	private int dateFinEncheres;
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	private int miseAPrix;
 	private int prixVente;
 	private String etatVente;
 	
+<<<<<<< HEAD
 	private int utilisateur;
 	private int categorie;
+=======
+	private Utilisateur utilisateur;
+<<<<<<< HEAD
+	int numeroCategorie;
+	
+	// Constructeur avec tous les attributs
+	
+	public ArticleVendu(int noArticle, String nomArticle, String description, String dateDebutEncheres,
+			String dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
+=======
+	private Categorie categorie;
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	
 	public ArticleVendu(
 			int noArticle, 
@@ -27,9 +50,14 @@ public class ArticleVendu {
 			int dateFinEncheres, 
 			int miseAPrix, 
 			int prixVente, 
+<<<<<<< HEAD
 			String etatVente,
 			int uti,
 			int cat) {
+=======
+			String etatVente) {
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 		
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
@@ -40,6 +68,7 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 		this.etatVente = etatVente;
 	}
+<<<<<<< HEAD
 	
 	// Constructeur sans le numéro d'article
 
@@ -48,6 +77,15 @@ public class ArticleVendu {
 		this.utilisateur = uti ;
 		this.categorie = cat ;
 	}
+=======
+<<<<<<< HEAD
+	
+	// Constructeur sans le numéro d'article
+
+	public ArticleVendu(String nomArticle, String description, String dateDebutEncheres, String dateFinEncheres,
+			int miseAPrix, int prixVente, String etatVente) {
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 
 	public ArticleVendu(
 			String nomArticle, 
@@ -56,9 +94,14 @@ public class ArticleVendu {
 			int dateFinEncheres,
 			int miseAPrix, 
 			int prixVente, 
+<<<<<<< HEAD
 			String etatVente,
 			int uti,
 			int cat) {
+=======
+			String etatVente) {
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -113,6 +156,24 @@ public class ArticleVendu {
 		this.description = description;
 	}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	public String getDateDebutEncheres() {
+		return dateDebutEncheres;
+	}
+
+	public void setDateDebutEncheres(String dateDebutEncheres) {
+		this.dateDebutEncheres = dateDebutEncheres;
+	}
+
+	public String getDateFinEncheres() {
+		return dateFinEncheres;
+	}
+
+	public void setDateFinEncheres(String dateFinEncheres) {
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	public int getDateDebutEncheres() {
 		return dateDebutEncheres;
 	}
@@ -126,6 +187,10 @@ public class ArticleVendu {
 	}
 
 	public void setDateFinEncheres(int dateFinEncheres) {
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 		this.dateFinEncheres = dateFinEncheres;
 	}
 
@@ -157,6 +222,7 @@ public class ArticleVendu {
 		return utilisateur;
 	}
 
+<<<<<<< HEAD
 	public int getCategorie() {
 		return categorie;
 	}
@@ -164,6 +230,36 @@ public class ArticleVendu {
 
 	@Override
 	public String toString() {
+=======
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+<<<<<<< HEAD
+	public int getNumeroCategorie() {
+		return numeroCategorie;
+	}
+
+	public void setNumeroCategorie(int numeroCategorie) {
+		this.numeroCategorie = numeroCategorie;
+=======
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+	}
+
+	@Override
+	public String toString() {
+<<<<<<< HEAD
+		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
+				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix="
+				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + ", categorie=" + numeroCategorie
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 		return "ArticleVendu [noArticle=" + noArticle 
 				+ ", nomArticle=" + nomArticle 
 				+ ", description=" + description
@@ -173,6 +269,10 @@ public class ArticleVendu {
 				+ ", prixVente=" + prixVente 
 				+ ", etatVente=" + etatVente 
 				+ ", categorie=" + categorie
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 				+ "]";
 	}
 

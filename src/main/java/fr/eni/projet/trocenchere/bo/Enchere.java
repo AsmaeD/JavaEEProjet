@@ -8,9 +8,21 @@ public class Enchere {
 	private int utilisateur;
 	private int articleVendu;
 	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	// Constructeur avec tous les attributs
+	
+	public Enchere(String dateEnchere, int montant_enchere) {
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	public Enchere(
 			iny dateEnchere, 
 			int montant_enchere) {
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 		
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
@@ -53,10 +65,21 @@ public class Enchere {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + ", articleVendu="
+				+ articleVendu + "]";
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 		return "Enchere [dateEnchere=" + dateEnchere 
 				+ ", montant_enchere=" + montant_enchere 
 				+ ", articleVendu=" + articleVendu 
 				+ "]";
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	}
 	
 }

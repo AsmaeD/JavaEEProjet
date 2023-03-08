@@ -2,7 +2,15 @@ package fr.eni.projet.trocenchere.bo;
 
 public class Utilisateur {
 
+<<<<<<< HEAD
 	private int numUtilisateur;
+=======
+<<<<<<< HEAD
+	private int no_utilisateur;
+=======
+	private int numUtilisateur;
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -13,6 +21,19 @@ public class Utilisateur {
 	private String ville;
 	private String motDePasse;
 	private int credit;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	private byte administrateur;
+	
+	// Constructeur avec tous les attributs
+	
+	public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
+
+		this.no_utilisateur = no_utilisateur;
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	private boolean administrateur;
 
 	public Utilisateur(
@@ -30,6 +51,10 @@ public class Utilisateur {
 			boolean administrateur) {
 
 		this.numUtilisateur = numUtilisateur;
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -43,6 +68,15 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	// Constructeur sans le numéro d'utilisateur
+	
+	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	public Utilisateur(
 			String pseudo, 
 			String nom, 
@@ -55,6 +89,10 @@ public class Utilisateur {
 			String motDePasse, 
 			int credit, 
 			boolean administrateur) {
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -72,12 +110,27 @@ public class Utilisateur {
 	public Utilisateur() {
 	}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	public int getNo_utilisateur() {
+		return no_utilisateur;
+	}
+
+	public void setNo_utilisateur(int no_utilisateur) {
+		this.no_utilisateur = no_utilisateur;
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	public int getNumUtilisateur() {
 		return numUtilisateur;
 	}
 
 	public void setNumUtilisateur(int numUtilisateur) {
 		this.numUtilisateur = numUtilisateur;
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	}
 
 	public String getPseudo() {
@@ -160,16 +213,39 @@ public class Utilisateur {
 		this.credit = credit;
 	}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	public byte getAdministrateur() {
+		return administrateur;
+	}
+
+	public void setAdministrateur(byte administrateur) {
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	public boolean getAdministrateur() {
 		return administrateur;
 	}
 
 	public void setAdministrateur(boolean administrateur) {
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 		this.administrateur = administrateur;
 	}
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+		return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
+				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
+				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
+				+ ", administrateur=" + administrateur + "]";
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 		return "Utilisateur ["
 				+ "numUtilisateur=" + numUtilisateur 
 				+ ", pseudo=" + pseudo 
@@ -184,6 +260,10 @@ public class Utilisateur {
 				+ ", credit=" + credit
 				+ ", administrateur=" + administrateur 
 				+ "]";
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
 	}
 	
 }

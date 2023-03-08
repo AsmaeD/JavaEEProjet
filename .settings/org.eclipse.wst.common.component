@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
     <wb-module deploy-name="JavaEEProjet2">
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes/" source-path="/src/main/ImportedClasses"/>
         <property name="context-root" value="JavaEEProjet2"/>
         <property name="java-output-path" value="/JavaEEProjet2/build/classes"/>
+<<<<<<< HEAD
+=======
+=======
+    <wb-module deploy-name="JavaEEProjet">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes/" source-path="/src/main/ImportedClasses"/>
+        <property name="context-root" value="JavaEEProjet"/>
+        <property name="java-output-path" value="/JavaEEProjet/build/classes"/>
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
     </wb-module>
 </project-modules>

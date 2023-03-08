@@ -2,14 +2,14 @@ package fr.eni.projet.trocenchere.bo;
 
 public class Enchere {
 	
-	private String dateEnchere;
+	private int dateEnchere;
 	private int montant_enchere;
 	
 	private int utilisateur;
 	private int articleVendu;
 	
 	public Enchere(
-			iny dateEnchere, 
+			int dateEnchere, 
 			int montant_enchere) {
 		
 		this.dateEnchere = dateEnchere;

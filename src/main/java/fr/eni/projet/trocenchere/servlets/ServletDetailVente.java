@@ -33,7 +33,7 @@ public class ServletDetailVente extends HttpServlet {
 		
 		if(request.getSession().getAttribute("Utilisateur") == null)
 			{
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 			}
 		else
@@ -75,7 +75,7 @@ public class ServletDetailVente extends HttpServlet {
 					}
 				
 				
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/DetailVente.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 		
 			}
@@ -88,7 +88,7 @@ public class ServletDetailVente extends HttpServlet {
 	{
 		if(request.getSession().getAttribute("Utilisateur") == null)
 			{
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 			}
 		else
@@ -128,7 +128,7 @@ public class ServletDetailVente extends HttpServlet {
 												String resultat = "Bravo vous êtes le premier et le meilleur enchérisseur";
 												request.setAttribute("resultatEnchere", resultat);
 
-												RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
+												RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 												rd.forward(request, response);
 											 }
 										else
@@ -136,7 +136,7 @@ public class ServletDetailVente extends HttpServlet {
 													String resultat = "L'enchère n'a pas encore commencée";
 											 		request.setAttribute("resultatEnchereError", resultat);
 
-													RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
+													RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 													rd.forward(request, response);
 											 }
 									}
@@ -148,7 +148,7 @@ public class ServletDetailVente extends HttpServlet {
 										request.setAttribute("resultatEnchere", resultatEnchere);
 										
 
-										RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
+										RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 										rd.forward(request, response);
 										
 									}
@@ -160,7 +160,7 @@ public class ServletDetailVente extends HttpServlet {
 								String resultat = "Crédit non suffisant";
 						 		request.setAttribute("resultatEnchereError", resultat);
 
-								RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
+								RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 								rd.forward(request, response);
 							}
 									

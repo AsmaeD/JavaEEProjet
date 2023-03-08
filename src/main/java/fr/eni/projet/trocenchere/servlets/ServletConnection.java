@@ -19,20 +19,20 @@ import fr.eni.projet.trocenchere.bll.UtilisateurManager;
  */
 @WebServlet(
 		urlPatterns = {"/Connexion", "/deconnexion"}
-				)
+		)
 public class ServletConnection extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
+
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+
+
 		if (request.getServletPath().equals("/deconnexion"))
 		{
-			
+
 			if (request.getSession() != null)
 			{
 				Cookie[] cookies = request.getCookies();
@@ -44,14 +44,14 @@ public class ServletConnection extends HttpServlet {
 							response.addCookie(cookieConnection);
 						}
 					}
-				
+
 				request.getSession().invalidate();
-				
+
 				response.sendRedirect(request.getContextPath()+"/index.jsp");
 			}
-			
+
 		}
-		
+
 		if (request.getServletPath().equals("/Connexion"))
 		{
 			if (request.getSession().getAttribute("Utilisateur") == null) {
@@ -61,10 +61,10 @@ public class ServletConnection extends HttpServlet {
 			else {
 				response.sendRedirect(request.getContextPath()+"/index.jsp");
 			}
-		
+
 		}
-		
-		
+
+
 	}
 
 	/**
@@ -74,51 +74,51 @@ public class ServletConnection extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		Boolean testConnection = false;
 
-			try {
-				UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
-			
-				//récupération des données
-				
-				String utilisateur = request.getParameter("Identifiant");
-				String password	= request.getParameter("Password");
-				String souvenirMoi = request.getParameter("souvenirMoi");
-				
-				
-				//Appel de la méthode de connection
-				
-				testConnection = utilisateurManager.connection(utilisateur, password);
-				
-				if (testConnection == false)
+		try {
+			UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
+
+			//récupération des données
+
+			String utilisateur = request.getParameter("Identifiant");
+			String password	= request.getParameter("Password");
+			String souvenirMoi = request.getParameter("souvenirMoi");
+
+
+			//Appel de la méthode de connection
+
+			testConnection = utilisateurManager.connection(utilisateur, password);
+
+			if (testConnection == false)
+			{
+				request.setAttribute("testConnection", testConnection);
+				RequestDispatcher rd  = request.getRequestDispatcher("/Connexion.jsp");
+				rd.forward(request, response);
+
+			}
+
+			if (testConnection == true)
+			{
+
+				HttpSession session = request.getSession(true);
+				session.setAttribute("Utilisateur", utilisateur);
+				if(souvenirMoi != null)
 				{
-					request.setAttribute("testConnection", testConnection);
-					RequestDispatcher rd  = request.getRequestDispatcher("/Connexion.jsp");
-					rd.forward(request, response);
+					//création d'un cookie de connection pour une semaine
+					Cookie cookieConnection	= new Cookie ("userPseudo", utilisateur);
+					cookieConnection.setMaxAge(7*24*3600);
+					response.addCookie(cookieConnection);
 
 				}
-				
-				if (testConnection == true)
-				{
-						
-					HttpSession session = request.getSession(true);
-					session.setAttribute("Utilisateur", utilisateur);
-					if(souvenirMoi != null)
-					{
-						//création d'un cookie de connection pour une semaine
-						Cookie cookieConnection	= new Cookie ("userPseudo", utilisateur);
-						cookieConnection.setMaxAge(7*24*3600);
-						response.addCookie(cookieConnection);
-						
-					}
-					
-					response.sendRedirect(request.getContextPath()+"/index.jsp");
-	
-				}
 
-				
-			} catch (NumberFormatException | BusinessException e) {
-				throw new ServletException("La connexion à échouée");
-				} 
-		
+				response.sendRedirect(request.getContextPath()+"/index.jsp");
+
+			}
+
+
+		} catch (NumberFormatException | BusinessException e) {
+			throw new ServletException("La connexion à échouée");
+		} 
+
 
 	}
 

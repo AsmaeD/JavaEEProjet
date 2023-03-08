@@ -66,7 +66,7 @@ public class ServletProfil extends HttpServlet {
 						request.setAttribute("valideP", valideP);
 						}
 						request.setAttribute("valideP", valideP);
-						RequestDispatcher rd  = request.getRequestDispatcher("/WEB-INF/JSP/Profil.jsp");
+						RequestDispatcher rd  = request.getRequestDispatcher("Profil.jsp");
 						rd.forward(request, response);
 						
 					
@@ -86,7 +86,7 @@ public class ServletProfil extends HttpServlet {
 					Utilisateur utilisateurProfil = utilisateurManager.recuperationUtilisateur(utilisateurGeneral);
 	
 					request.setAttribute("utilisateurProfil", utilisateurProfil);
-					RequestDispatcher rd  = request.getRequestDispatcher("/WEB-INF/JSP/ModificationProfil.jsp");
+					RequestDispatcher rd  = request.getRequestDispatcher("ModificationProfil.jsp");
 					rd.forward(request, response);
 				} catch (BusinessException e) {
 					throw new ServletException("Erreur de chargement de la page : Modification profil ");
@@ -100,7 +100,7 @@ public class ServletProfil extends HttpServlet {
 						UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
 						utilisateurManager.suppressionProfil(utilisateurGeneral);
 						request.getSession().invalidate();
-						RequestDispatcher rd  = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
+						RequestDispatcher rd  = request.getRequestDispatcher("index.jsp");
 						rd.forward(request, response);
 						
 					} catch (BusinessException e) {
@@ -152,7 +152,7 @@ public class ServletProfil extends HttpServlet {
 				erreurvide = true;
 				request.setAttribute("erreurvide", erreurvide);
 				request.setAttribute("utilisateurProfil", utilisateurProfil);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ModificationProfil.jsp") ;
+				RequestDispatcher rd = request.getRequestDispatcher("ModificationProfil.jsp") ;
 				rd.forward(request, response);
 			}
 			
@@ -181,7 +181,7 @@ public class ServletProfil extends HttpServlet {
 	 							utilisateurManager.modificationProfil(utilisateur, utilisateurGener);
 	 							HttpSession session = request.getSession(true);
 	 	 						session.setAttribute("Utilisateur", utilisateur.getPseudo());
-	 	 						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp") ;
+	 	 						RequestDispatcher rd = request.getRequestDispatcher("index.jsp") ;
 	 	 						rd.forward(request, response);	 						
 	 					}
 						// VÃ©rifie si les deux new mdps sont : null alors ok 
@@ -190,7 +190,7 @@ public class ServletProfil extends HttpServlet {
 	 						utilisateurManager.modificationProfil(utilisateur, utilisateurGener);
 	 						HttpSession session = request.getSession(true);
 	 						session.setAttribute("Utilisateur", utilisateur.getPseudo());
-	 						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp") ;
+	 						RequestDispatcher rd = request.getRequestDispatcher("index.jsp") ;
 		 					rd.forward(request, response);
 	 					}
 						// si mdp les deux mdp ne sont pas egaux : message erreur
@@ -198,7 +198,7 @@ public class ServletProfil extends HttpServlet {
 	 						validationMdp = true;
 	 						request.setAttribute("validationMdp", validationMdp);
 							request.setAttribute("utilisateurProfil", utilisateurProfil);
-	 						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ModificationProfil.jsp") ;
+	 						RequestDispatcher rd = request.getRequestDispatcher("ModificationProfil.jsp") ;
 	 						rd.forward(request, response);
 	 					}
 	
@@ -209,14 +209,14 @@ public class ServletProfil extends HttpServlet {
 					verifMail = true;
 					request.setAttribute("verifMail", verifMail);
 					request.setAttribute("utilisateurProfil", utilisateurProfil);
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ModificationProfil.jsp") ;
+					RequestDispatcher rd = request.getRequestDispatcher("ModificationProfil.jsp") ;
 					rd.forward(request, response);
 				}
 				// Sinon erreur et envoit message erreur
 				else {
 					request.setAttribute("verifMail", verifMail);
 					request.setAttribute("utilisateurProfil", utilisateurProfil);
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ModificationProfil.jsp") ;
+					RequestDispatcher rd = request.getRequestDispatcher("ModificationProfil.jsp") ;
 					rd.forward(request, response);
 				}
  			}
@@ -226,7 +226,7 @@ public class ServletProfil extends HttpServlet {
  				validationMdpAc = true;
 				request.setAttribute("validationMdpAc", validationMdpAc);
 				request.setAttribute("utilisateurProfil", utilisateurProfil);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ModificationProfil.jsp") ;
+				RequestDispatcher rd = request.getRequestDispatcher("ModificationProfil.jsp") ;
 				rd.forward(request, response);	
  			 }
  			 

@@ -64,7 +64,7 @@ public class ServletNouvelleVente extends HttpServlet {
 						}
 					
 				
-						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/NouvelleVente.jsp");
+						RequestDispatcher rd = request.getRequestDispatcher("NouvelleVente.jsp");
 						rd.forward(request, response);
 			}
 	}
@@ -137,7 +137,7 @@ public class ServletNouvelleVente extends HttpServlet {
 			request.setAttribute("newArticle", newArticle);
 			request.setAttribute("retrait", retrait);
 			request.setAttribute("validateDateDebut", validateDateDebut);
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/NouvelleVente.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("NouvelleVente.jsp");
 			rd.forward(request, response);
 			}
 
@@ -179,7 +179,7 @@ public class ServletNouvelleVente extends HttpServlet {
 			validerAjout = true;
 			request.setAttribute("validerAjout", validerAjout);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Accueil.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Accueil.jsp");
 			rd.forward(request, response);
 			}
 	}

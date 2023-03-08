@@ -10,7 +10,7 @@
 	<!-- NavBar classique présente sur toutes les pages -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 		<div class="container">
-			<a class="navbar-brand" href="index.jsp">ENI Enchères</a>
+			<a class="navbar-brand" href="">ENI Enchères</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">

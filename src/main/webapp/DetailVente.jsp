@@ -95,10 +95,16 @@
 								class="btn btn-primary mb-2" />
 
 						</div>
+					</div>
+				</c:if>
 			</form>
 		</div>
-
 	</c:if>
+
+
+
+
+
 
 	<c:if test="${vendeur == Utilisateur }">
 

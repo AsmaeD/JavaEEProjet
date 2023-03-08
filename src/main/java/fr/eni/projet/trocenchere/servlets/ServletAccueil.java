@@ -87,7 +87,6 @@ public class ServletAccueil extends HttpServlet {
 		} catch (Exception e) {
 			throw new ServletException ("La liste des articles n'a pas pu être récupéré"+e);
 		}
-
 	}
 
 	/**

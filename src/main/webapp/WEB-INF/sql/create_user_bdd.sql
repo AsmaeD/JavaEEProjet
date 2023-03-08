@@ -1,0 +1,5 @@
+USE [TROC_ENCHERES]
+GO
+
+CREATE LOGIN troch_encheres_user WITH PASSWORD = 'vZ7tZ2Yb38c5jU'
+GO

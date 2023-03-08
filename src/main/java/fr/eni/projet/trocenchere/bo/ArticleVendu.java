@@ -1,27 +1,35 @@
 package fr.eni.projet.trocenchere.bo;
 
+<<<<<<< HEAD
 import java.time.LocalDate;
 
+=======
+>>>>>>> 8a6e696111f64b69e47d7852d96bbbf313302aa0
 public class ArticleVendu {
 
 	private int noArticle;
 	private String nomArticle;
 	private String description;
-	private LocalDate dateDebutEncheres;
-	private LocalDate dateFinEncheres;
+	private int dateDebutEncheres;
+	private int dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
-	private int etatVente;
-	private byte[] imageArticle;
-	private String image;
+	private String etatVente;
 	
-	private Utilisateur utilisateur;
-	int numeroCategorie;
+	private int utilisateur;
+	private int categorie;
 	
-	// Constructeur avec tous les attributs
-	
-	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, int miseAPrix, int prixVente, int etatVente) {
+	public ArticleVendu(
+			int noArticle, 
+			String nomArticle, 
+			String description, 
+			int dateDebutEncheres,
+			int dateFinEncheres, 
+			int miseAPrix, 
+			int prixVente, 
+			String etatVente,
+			int uti,
+			int cat) {
 		
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
@@ -37,6 +45,20 @@ public class ArticleVendu {
 
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			int miseAPrix, int prixVente, int etatVente) {
+		this.utilisateur = uti ;
+		this.categorie = cat ;
+	}
+
+	public ArticleVendu(
+			String nomArticle, 
+			String description, 
+			int dateDebutEncheres, 
+			int dateFinEncheres,
+			int miseAPrix, 
+			int prixVente, 
+			String etatVente,
+			int uti,
+			int cat) {
 
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -45,6 +67,8 @@ public class ArticleVendu {
 		this.miseAPrix = miseAPrix;
 		this.prixVente = prixVente;
 		this.etatVente = etatVente;
+		this.utilisateur = uti ;
+		this.categorie = cat ;
 	}
 
 	public ArticleVendu() {
@@ -54,6 +78,16 @@ public class ArticleVendu {
 			LocalDate dateFinEncheres2, int miseAPrix2, byte[] images) {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public void setUtilisateur(int utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	public void setCategorie(int categorie) {
+		this.categorie = categorie;
+	}
+
 
 	public int getNoArticle() {
 		return noArticle;
@@ -79,19 +113,19 @@ public class ArticleVendu {
 		this.description = description;
 	}
 
-	public LocalDate getDateDebutEncheres() {
+	public int getDateDebutEncheres() {
 		return dateDebutEncheres;
 	}
 
-	public void setDateDebutEncheres(LocalDate dateDebutEncheres2) {
-		this.dateDebutEncheres = dateDebutEncheres2;
+	public void setDateDebutEncheres(int dateDebutEncheres) {
+		this.dateDebutEncheres = dateDebutEncheres;
 	}
 
-	public LocalDate getDateFinEncheres() {
+	public int getDateFinEncheres() {
 		return dateFinEncheres;
 	}
 
-	public void setDateFinEncheres(LocalDate dateFinEncheres) {
+	public void setDateFinEncheres(int dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 
@@ -111,49 +145,34 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 	}
 
-	public int getEtatVente() {
+	public String getEtatVente() {
 		return etatVente;
 	}
 
-	public void setEtatVente(int etatVente) {
+	public void setEtatVente(String etatVente) {
 		this.etatVente = etatVente;
 	}
 
-	public Utilisateur getUtilisateur() {
+	public int getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
+	public int getCategorie() {
+		return categorie;
 	}
 
-	public int getNumeroCategorie() {
-		return numeroCategorie;
-	}
-
-	public void setNumeroCategorie(int numeroCategorie) {
-		this.numeroCategorie = numeroCategorie;
-	}
-	
-	/**
-	 * @return the imageArticle
-	 */
-	public byte[] getImageArticle() {
-		return imageArticle;
-	}
-
-	/**
-	 * @param imageArticle the imageArticle to set
-	 */
-	public void setImageArticle(byte[] imageArticle) {
-		this.imageArticle = imageArticle;
-	}
 
 	@Override
 	public String toString() {
-		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
-				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix="
-				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + ", categorie=" + numeroCategorie
+		return "ArticleVendu [noArticle=" + noArticle 
+				+ ", nomArticle=" + nomArticle 
+				+ ", description=" + description
+				+ ", dateDebutEncheres=" + dateDebutEncheres 
+				+ ", dateFinEncheres=" + dateFinEncheres 
+				+ ", miseAPrix=" + miseAPrix 
+				+ ", prixVente=" + prixVente 
+				+ ", etatVente=" + etatVente 
+				+ ", categorie=" + categorie
 				+ "]";
 	}
 

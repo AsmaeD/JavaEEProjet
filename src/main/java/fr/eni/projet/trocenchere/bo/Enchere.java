@@ -1,19 +1,16 @@
 package fr.eni.projet.trocenchere.bo;
 
-
-import java.time.chrono.ChronoLocalDate;
-
 public class Enchere {
 	
-	private ChronoLocalDate dateEnchere;
+	private String dateEnchere;
 	private int montant_enchere;
 	
-	private Utilisateur utilisateur;
-	private ArticleVendu articleVendu;
+	private int utilisateur;
+	private int articleVendu;
 	
-	// Constructeur avec tous les attributs
-	
-	public Enchere(ChronoLocalDate dateEnchere, int montant_enchere) {
+	public Enchere(
+			iny dateEnchere, 
+			int montant_enchere) {
 		
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
@@ -22,11 +19,11 @@ public class Enchere {
 	public Enchere() {
 	}
 
-	public ChronoLocalDate getDateEnchere() {
+	public int getDateEnchere() {
 		return dateEnchere;
 	}
 
-	public void setDateEnchere(ChronoLocalDate dateEnchere) {
+	public void setDateEnchere(int dateEnchere) {
 		this.dateEnchere = dateEnchere;
 	}
 
@@ -38,26 +35,28 @@ public class Enchere {
 		this.montant_enchere = montant_enchere;
 	}
 
-	public Utilisateur getUtilisateur() {
+	public int getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
+	public void setUtilisateur(int utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 
-	public ArticleVendu getArticleVendu() {
+	public int getArticleVendu() {
 		return articleVendu;
 	}
 
-	public void setArticleVendu(ArticleVendu articleVendu) {
+	public void setArticleVendu(int articleVendu) {
 		this.articleVendu = articleVendu;
 	}
 
 	@Override
 	public String toString() {
-		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + ", articleVendu="
-				+ articleVendu + "]";
+		return "Enchere [dateEnchere=" + dateEnchere 
+				+ ", montant_enchere=" + montant_enchere 
+				+ ", articleVendu=" + articleVendu 
+				+ "]";
 	}
 	
 }

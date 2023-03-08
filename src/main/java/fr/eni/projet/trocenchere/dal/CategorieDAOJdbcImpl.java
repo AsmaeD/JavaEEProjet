@@ -10,24 +10,28 @@ import java.util.List;
 import fr.eni.projet.trocechere.BusinessException;
 import fr.eni.projet.trocenchere.bo.Categorie;
 //TODO verify if DAO use directly or use intermediary CategorieDAO
-public class CategorieDAOJdbcImpl implements DAO<Categorie> {
+public class CategorieDAOJdbcImpl implements CategorieDAO {
 	
 	
 /****************************************************************************************/
 	/*BEGIN SQL QUERIES */
 /****************************************************************************************/
 	
-
+	//TODO verif id * must be replaced with all table titles instead
 	private static final String SELECT_ALL = "SELECT * FROM CATEGORIES" ;
+	
 	private static final String SELECT_BY_ID = "SELECT " 
 			+ "no_categorie, " 
 			+ "libelle " 
 			+ "FROM CATEGORIES "
-			+ "WHERE no_categorie = ? ;" ;
+			+ "WHERE no_categorie = ? ;" ; 
+	
 		private static final String INSERT_CATEGORIE = "INSERT INTO CATEGORIES("
 			+ "libelle) "
 			+ "VALUES (?);"  ;
+		
 		private static final String DELETE_CATEGORIE = "DELETE FROM UTILISATEURS WHERE no_categorie = ? ;"  ;
+		
 		private static final String UPDATE_CATEGORIE = "UPDATE CATEGORIES SET "
 			+ "libelle = ? "
 			+ "WHERE no_category = ? ;" ;
@@ -174,7 +178,7 @@ public class CategorieDAOJdbcImpl implements DAO<Categorie> {
 				//which error when it is'nt the case ?
 				pstmt = cnx.prepareStatement(UPDATE_CATEGORIE, category.getNumCategorie());
 				//veri if rank == rank in database or rank in string statement
-				pstmt.setString(1,category.libelle()) ;
+				pstmt.setString(1,category.getLibelle()) ;
 				pstmt.executeUpdate() ;
 				pstmt.close() ;
 				

@@ -1,15 +1,29 @@
 package fr.eni.projet.trocenchere.bll;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import fr.eni.projet.trocenchere.bo.ArticleVendu;
+import fr.eni.projet.trocenchere.bo.Categorie;
 
 public class ArticleVenduManager {
-
+	
+	private static ArticleVenduManager instance;
 	private DAO<ArticleVendu> articleDAO;
 
 	public ArticleVenduManager() {
 		this.articleDAO = DAOFactory.getArticleVenduDAO;
+	}
+	
+	
+	public static synchronized ArticleVenduManager getInstance() {
+		if(instance==null)
+		{
+			instance = new ArticleVenduManager();
+		}
+		return instance;
 	}
 	
 	public void ajouter(ArticleVendu articleVendu) throws BusinessException {
@@ -40,9 +54,17 @@ public class ArticleVenduManager {
 
 	}
 	
-	public void supprimer(ArticleVendu articleVendu) {
-		this.articleDAO.delete(articleVendu);
-	}
+	/*Suppression de l'article avant la date de fin  de l'enchère n'est pas terminée
+		public  boolean cancelArticleVendu(ArticleVendu article) throws BusinessException {
+			boolean articleSupprime = false;
+			int idarticle = article.getNoArticle();
+			
+			if(LocalDate.now().compareTo(article.getDateDebutEncheres())<0) {
+				articleSupprime = articleVenduDAO.removeArticleVendu(idarticle);
+				
+			}
+			return articleSupprime;
+		}*/
 	
 	public List<ArticleVendu> selectionnerTousLesArticles() {
 		return this.articleDAO.selectAll();
@@ -90,5 +112,48 @@ public class ArticleVenduManager {
 				businessException.ajouterErreur(CodesErreurBLL.REGLE_PRIX);
 			}
 	}
+	
+	//Récupération de tous les articles selon le filtre de l'accueil
+	/*public List<ArticleVendu> getListeEtatVente(String motcle ,Integer ouvertes , Integer encours, Integer terminees, int numCategorie, int categoriesMax, String pseudoAchat, String pseudoVente) throws BusinessException{
+		List<ArticleVendu> lstArticle = new ArrayList<ArticleVendu>();
+		//int idEtatVente= transcriptEtatVenteToID(etatVente);
 
+		lstArticle = articleVenduDAO.recupListeArticleSelonFiltreAccueil(motcle, ouvertes, encours, terminees, numCategorie, categoriesMax, pseudoAchat,pseudoVente);
+		
+		return lstArticle;
+		
+	}
+
+	//Récupération des catégories
+	public Set<Categorie> getListCategories() throws BusinessException{
+		Set<Categorie> lstCat = articleVenduDAO.getListCategorie();
+		
+		return lstCat;
+		
+	}
+	
+	//Récupération d'un article son nom et le pseudo du vendeur
+	
+	public ArticleVendu recupererArticleParNomArticleEtNomVendeur(String nomArticle, String pseudoVendeur) throws BusinessException{
+		ArticleVendu articleAGenerer = articleVenduDAO.recupArticleBYNomEtPseudoVendeur(nomArticle, pseudoVendeur);
+				
+		return articleAGenerer;
+	}
+	
+	//Permet la modification de l'article s'il est encore temps
+	
+	public void updateArticle(ArticleVendu article) throws BusinessException{
+		if(article.getEtatVente() == 1)
+			articleVenduDAO.updateArticleVendu(article);
+	}
+	
+	//Ajout d'un article en vente par l'utilisateur et renvoi l'id de l'article nouvellement créé
+		public int ajoutArticle(ArticleVendu article, int idvendeur, String categorie) throws BusinessException {
+			int idNouvelleVente = 0;
+			
+			
+			idNouvelleVente = articleVenduDAO.addArticleVendu(article, idvendeur, categorie);
+			
+			return idNouvelleVente;
+		}*/
 }

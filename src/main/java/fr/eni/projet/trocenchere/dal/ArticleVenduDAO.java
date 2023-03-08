@@ -8,6 +8,7 @@ import fr.eni.projet.trocenchere.bo.Categorie;
 
 public interface ArticleVenduDAO {
 	
+	//TODO ADD DAO generic to implement 
 	public void insert(ArticleVendu article) throws BusinessException ;
 	public void delete(ArticleVendu article) throws BusinessException ;
 
@@ -16,7 +17,9 @@ public interface ArticleVenduDAO {
 	public ArticleVendu selectById(int i) throws BusinessException ;
 	public List<ArticleVendu> selectAll() throws BusinessException ;
 	
-	//function change status only
-	//function 
-
+	//renvoi liste noms similaires
+	public List<ArticleVendu> selectByNom(String nom) throws BusinessException ;
+	
+	public List<ArticleVendu> selectByCat(int i) throws BusinessException ;
+	
 }

@@ -5,18 +5,34 @@ public class Enchere {
 	private String dateEnchere;
 	private int montant_enchere;
 	
-	private Utilisateur utilisateur;
-	private ArticleVendu articleVendu;
+	private int utilisateur;
+	private int articleVendu;
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 	// Constructeur avec tous les attributs
 	
 	public Enchere(String dateEnchere, int montant_enchere) {
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
+>>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 	public Enchere(
-			String dateEnchere, 
+			iny dateEnchere, 
 			int montant_enchere) {
+<<<<<<< HEAD
 >>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
+>>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 		
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
@@ -25,11 +41,11 @@ public class Enchere {
 	public Enchere() {
 	}
 
-	public String getDateEnchere() {
+	public int getDateEnchere() {
 		return dateEnchere;
 	}
 
-	public void setDateEnchere(String dateEnchere) {
+	public void setDateEnchere(int dateEnchere) {
 		this.dateEnchere = dateEnchere;
 	}
 
@@ -41,33 +57,49 @@ public class Enchere {
 		this.montant_enchere = montant_enchere;
 	}
 
-	public Utilisateur getUtilisateur() {
+	public int getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
+	public void setUtilisateur(int utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 
-	public ArticleVendu getArticleVendu() {
+	public int getArticleVendu() {
 		return articleVendu;
 	}
 
-	public void setArticleVendu(ArticleVendu articleVendu) {
+	public void setArticleVendu(int articleVendu) {
 		this.articleVendu = articleVendu;
 	}
 
 	@Override
 	public String toString() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + ", articleVendu="
 				+ articleVendu + "]";
 =======
+=======
+=======
+<<<<<<< HEAD
+		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + ", articleVendu="
+				+ articleVendu + "]";
+=======
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
+>>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 		return "Enchere [dateEnchere=" + dateEnchere 
 				+ ", montant_enchere=" + montant_enchere 
 				+ ", articleVendu=" + articleVendu 
 				+ "]";
+<<<<<<< HEAD
 >>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 47966660e5bf5dd888181761c197c4402738d371
+>>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
+>>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 	}
 	
 }

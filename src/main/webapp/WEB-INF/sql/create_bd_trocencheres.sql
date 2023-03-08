@@ -1,4 +1,4 @@
--- Script de création de la base de données ENCHERES
+-- Script de crï¿½ation de la base de donnï¿½es ENCHERES
 --   type :      SQL Server 2012
 --
 
@@ -38,6 +38,7 @@ CREATE TABLE ARTICLES_VENDUS (
     date_fin_encheres             INTEGER NOT NULL,
     prix_initial                  INTEGER,
     prix_vente                    INTEGER,
+	etat_vente					  VARCHAR(30),
     no_utilisateur                INTEGER NOT NULL,
     no_categorie                  INTEGER NOT NULL
 )

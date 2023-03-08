@@ -9,22 +9,89 @@ import java.util.List;
 
 import fr.eni.projet.trocechere.BusinessException;
 import fr.eni.projet.trocenchere.bo.Categorie;
-
-public class CategorieDAOJdbcImpl implements CategorieDAO {
+//TODO verify if DAO use directly or use intermediary CategorieDAO
+public class CategorieDAOJdbcImpl implements DAO<Categorie> {
 	
-	private static final String INSERT_CATEGORIE = "INSERT INTO CATEGORIES("
-			+ "libelle) "
-			+ "VALUES (?);"  ;
+	
+/****************************************************************************************/
+	/*BEGIN SQL QUERIES */
+/****************************************************************************************/
+	
+
 	private static final String SELECT_ALL = "SELECT * FROM CATEGORIES" ;
 	private static final String SELECT_BY_ID = "SELECT " 
 			+ "no_categorie, " 
 			+ "libelle " 
 			+ "FROM CATEGORIES "
-			+ "WHERE no_categorie = ? "
-			+ ";" ;
-	private static final String DELETE_CATEGORIE = "DELETE FROM UTILISATEURS WHERE no_categorie = ? ;"  ;
+			+ "WHERE no_categorie = ? ;" ;
+		private static final String INSERT_CATEGORIE = "INSERT INTO CATEGORIES("
+			+ "libelle) "
+			+ "VALUES (?);"  ;
+		private static final String DELETE_CATEGORIE = "DELETE FROM UTILISATEURS WHERE no_categorie = ? ;"  ;
+		private static final String UPDATE_CATEGORIE = "UPDATE CATEGORIES SET "
+			+ "libelle = ? "
+			+ "WHERE no_category = ? ;" ;
+	
+/****************************************************************************************/
+	/*BEGIN METHODS SELECT*/
+/****************************************************************************************/
+		
+	@Override//check which arg is passed in server
+	public Categorie selectById(int i) {
+		Categorie category = null ;
+		try {
+			
+			Connection cnx = ConnectionProvider.getConnection();
+			
+			PreparedStatement pstmt ;
+			pstmt = cnx.prepareStatement(SELECT_BY_ID);
+			//in SELECT_BY_PSEUDO only one variable passes : pseudo
+			//set variable to pseudo
+			pstmt.setInt(1, i) ;
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				category = new Categorie(
+					rs.getInt("no_categorie"), 
+					rs.getString("libelle")
+					);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return category;
+	}
+	
+	@Override
+	public List<Categorie> selectAll() throws BusinessException {
+		List<Categorie> listeCategories = new ArrayList<Categorie>() ;
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ALL);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next())
+			{
+				listeCategories.add(new Categorie(rs.getInt(1), rs.getString(2))
+					);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTES_ECHEC);
+			throw businessException;
+		}
+		return listeCategories;
+	}
 
-
+	
+	
+/****************************************************************************************/
+	/*BEGIN METHOD INSERT */
+/****************************************************************************************/
+	
 	@Override
 	public void insert(Categorie category) throws BusinessException {
 		//verify is user is null
@@ -68,6 +135,11 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 			throw businessException;
 		}
 	}
+	
+	
+/****************************************************************************************/
+	/*BEGIN METHOD DELETE */
+/****************************************************************************************/
 
 	@Override//check if arg is n
 	public void delete(Categorie category) throws BusinessException {
@@ -86,60 +158,42 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 		
 	}
 
+	
+/****************************************************************************************/
+	/*BEGIN METHOD UPDATE */
+/****************************************************************************************/
 
 	@Override
-	public List<Categorie> selectAll() throws BusinessException {
-		List<Categorie> listeCategories = new ArrayList<Categorie>() ;
+	public void update(Categorie category) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection())
 		{
-			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ALL);
-			ResultSet rs = pstmt.executeQuery();
-			while(rs.next())
+			try
 			{
-				listeCategories.add(new Categorie(rs.getInt(1), rs.getString(2))
-					);
+				PreparedStatement pstmt;
+				//must check if num user indeed exists
+				//which error when it is'nt the case ?
+				pstmt = cnx.prepareStatement(UPDATE_CATEGORIE, category.getNumCategorie());
+				//veri if rank == rank in database or rank in string statement
+				pstmt.setString(1,category.libelle()) ;
+				pstmt.executeUpdate() ;
+				pstmt.close() ;
+				
+				cnx.commit() ;
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				cnx.rollback();
+				throw e;
 			}
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 			BusinessException businessException = new BusinessException();
-			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTES_ECHEC);
+			//businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
 			throw businessException;
 		}
-		return listeCategories;
-	}
-
-	@Override//check which arg is passed in server
-	public Categorie selectById(int i) {
-		Categorie category = null ;
-		try {
-			
-			Connection cnx = ConnectionProvider.getConnection();
-			
-			PreparedStatement pstmt ;
-			pstmt = cnx.prepareStatement(SELECT_BY_ID);
-			//in SELECT_BY_PSEUDO only one variable passes : pseudo
-			//set variable to pseudo
-			pstmt.setInt(1, i) ;
-			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) {
-				category = new Categorie(
-					rs.getInt("no_categorie"), 
-					rs.getString("libelle")
-					);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return category;
-	}
-
-	@Override
-	public void update(Categorie category) throws BusinessException {
-		// TODO 
 		
 	}
 

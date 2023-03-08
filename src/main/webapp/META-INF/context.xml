@@ -7,8 +7,8 @@
 		type="javax.sql.DataSource"
 		
 		url="jdbc:sqlserver://localhost;databasename=TROC_ENCHERES"
-		username="utilisateurBDD"
-		password="Pa$$w0rd"
+		username="troch_encheres_user"
+		password="vZ7tZ2Yb38c5jU"
 		
 		maxTotal="100"
 		maxIdle="30"

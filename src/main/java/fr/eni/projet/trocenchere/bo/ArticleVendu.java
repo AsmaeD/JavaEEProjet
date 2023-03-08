@@ -1,9 +1,6 @@
 package fr.eni.projet.trocenchere.bo;
 
 
-import java.time.LocalDate;
-
-
 public class ArticleVendu {
 
 	private int numArticle;
@@ -30,7 +27,6 @@ public class ArticleVendu {
 			int dateFinEncheres, 
 			int miseAPrix, 
 			int prixVente, 
-
 			String etatVente,
 			int uti,
 			int cat) {
@@ -74,10 +70,6 @@ public class ArticleVendu {
 	public ArticleVendu() {
 	}
 
-	public ArticleVendu(String nomArticle2, String description2, LocalDate dateDebutEncheres2,
-			LocalDate dateFinEncheres2, int miseAPrix2, byte[] images) {
-		// TODO Auto-generated constructor stub
-	}
 
 	
 	public void setUtilisateur(int utilisateur) {

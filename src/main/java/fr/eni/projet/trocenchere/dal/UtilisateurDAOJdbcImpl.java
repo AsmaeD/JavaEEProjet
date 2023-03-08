@@ -11,17 +11,33 @@ import java.util.List;
 import fr.eni.projet.trocechere.BusinessException;
 import fr.eni.projet.trocenchere.bo.Utilisateur;
 
-public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE TO PROJECT
+public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {//TODO ADD FILE TO PROJECT
 
 	
 	
 /****************************************************************************************/
 	/*BEGIN SQL QUERIES */
 /****************************************************************************************/
-	
-	//declaration of all constants of sql requests
-	//TODO be careful woth unicité couple pseudo mot de passe à définir encore
+
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS" ;
+	
+	private static final String SELECT_BY_ID = "SELECT " 
+			+ "no_utilisateur, " 
+			+ "pseudo, " 
+			+ "nom, " 
+			+ "prenom, "
+			+ "email, " 
+			+ "telephone, " 
+			+ "rue, "
+			+ "code_postal, "
+			+ "ville, " 
+			+ "mot_de_passe, "
+			+ "credit, "
+			+ "administrateur "
+			+ "FROM UTILISATEURS "
+			+ "WHERE no_utilisateur = ? "
+			+ ";" ;
+	
 	private static final String SELECT_BY_PSEUDO = "SELECT " 
 			+ "no_utilisateur, " 
 			+ "pseudo, " 
@@ -54,6 +70,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 			+ "VALUES (?,?,?,?,?,?,?,?,?,?,?);" ;
 	
 	private static final String DELETE_USER = "DELETE FROM UTILISATEURS WHERE pseudo = ? ;" ;
+	
 	private static final String UPDATE_USER = "UPDATE UTILISATEURS SET "
 			+ "email = ?, "
 			+ "telephone = ?, "
@@ -107,7 +124,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 	}
 	
 	@Override
-	public Utilisateur selectById(String pseudo) throws BusinessException {
+	public Utilisateur selectByPseudo(String pseudo) throws BusinessException {
 		//initialisation
 		//might not be a good idea
 		Utilisateur user = null ;
@@ -120,6 +137,45 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 			//in SELECT_BY_PSEUDO only one variable passes : pseudo
 			//set variable to pseudo
 			pstmt.setString(1, pseudo ) ;
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				user = new Utilisateur(
+					rs.getInt("no_utilisateur"), 
+					rs.getString("pseudo"),
+					rs.getString("nom"),
+					rs.getString("prenom"),
+					rs.getString("email"),
+					rs.getString("telephone"),
+					rs.getString("rue"),
+					rs.getString("code_postale"),
+					rs.getString("ville"),
+					rs.getString("mot_de_passe"),
+					rs.getInt("credit"),
+					rs.getBoolean("administrateur")
+					);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
+	
+	@Override
+	public Utilisateur selectById(int idUser) throws BusinessException {
+		//initialisation
+		//might not be a good idea
+		Utilisateur user = null ;
+		try {
+			
+			Connection cnx = ConnectionProvider.getConnection();
+			
+			PreparedStatement pstmt ;
+			pstmt = cnx.prepareStatement(SELECT_BY_ID );
+			//in SELECT_BY_PSEUDO only one variable passes : pseudo
+			//set variable to pseudo
+			pstmt.setInt(1, idUser ) ;
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
 				user = new Utilisateur(

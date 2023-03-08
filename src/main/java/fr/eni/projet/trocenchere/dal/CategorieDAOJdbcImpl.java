@@ -10,7 +10,7 @@ import java.util.List;
 import fr.eni.projet.trocechere.BusinessException;
 import fr.eni.projet.trocenchere.bo.Categorie;
 //TODO verify if DAO use directly or use intermediary CategorieDAO
-public class CategorieDAOJdbcImpl implements DAO<Categorie> {
+public class CategorieDAOJdbcImpl implements CategorieDAO {
 	
 	
 /****************************************************************************************/
@@ -174,7 +174,7 @@ public class CategorieDAOJdbcImpl implements DAO<Categorie> {
 				//which error when it is'nt the case ?
 				pstmt = cnx.prepareStatement(UPDATE_CATEGORIE, category.getNumCategorie());
 				//veri if rank == rank in database or rank in string statement
-				pstmt.setString(1,category.libelle()) ;
+				pstmt.setString(1,category.getLibelle()) ;
 				pstmt.executeUpdate() ;
 				pstmt.close() ;
 				

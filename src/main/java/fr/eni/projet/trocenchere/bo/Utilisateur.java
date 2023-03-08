@@ -61,7 +61,6 @@ public class Utilisateur {
 			int credit, 
 			boolean administrateur) {
 
-
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -74,6 +73,62 @@ public class Utilisateur {
 		this.credit = credit;
 		this.administrateur = administrateur;
 	}
+	
+	// Constructeur sans le numéro d'utilisateur sans valeur admin
+
+	public Utilisateur(
+			String pseudo, 
+			String nom, 
+			String prenom, 
+			String email,
+			String telephone, 
+			String rue,
+			String codePostal,
+			String ville, 
+			String motDePasse, 
+			int credit) {
+
+
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+		this.credit = credit;
+		this.administrateur = false;
+	}
+	
+	// Constructeur sans le numéro d'utilisateur sans valeur admin sans credits
+
+		public Utilisateur(
+				String pseudo, 
+				String nom, 
+				String prenom, 
+				String email,
+				String telephone, 
+				String rue,
+				String codePostal,
+				String ville, 
+				String motDePasse) {
+
+
+			this.pseudo = pseudo;
+			this.nom = nom;
+			this.prenom = prenom;
+			this.email = email;
+			this.telephone = telephone;
+			this.rue = rue;
+			this.codePostal = codePostal;
+			this.ville = ville;
+			this.motDePasse = motDePasse;
+			this.credit = 0;
+			this.administrateur = false;
+		}
+
 
 	public Utilisateur() {
 	}

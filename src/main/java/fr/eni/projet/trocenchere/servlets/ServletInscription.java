@@ -43,18 +43,20 @@ public class ServletInscription extends HttpServlet {
 			
 			// Récuperation de l'ensemble des données du formulaire
 			String pseudo = request.getParameter("pseudo");
-			String prenom = request.getParameter("prenom");
-			String tel = request.getParameter("tel");
-			String cp = request.getParameter("cp");
-			String mdp = request.getParameter("mdp");
 			String nom = request.getParameter("nom");
+			String prenom = request.getParameter("prenom");
 			String email = request.getParameter("email");
+			String tel = request.getParameter("tel");
 			String rue = request.getParameter("rue");
+			String cp = request.getParameter("cp");
 			String ville = request.getParameter("ville");
+
+			String mdp = request.getParameter("mdp");
+			
 			String mdpConfirm = request.getParameter("confirm");
 				
 			// Construction utilisateur
-			Utilisateur utilisateurU = new Utilisateur(pseudo, nom, prenom, email, tel, rue, cp, ville, mdp);
+			Utilisateur utilisateurU = new Utilisateur(pseudo, nom, prenom, email, tel, rue, cp, ville, mdp, 0);
 			System.out.println(utilisateurU.toString());	
 						
 			// If permettant de savoir si les deux mdps du formulaire sont identiques

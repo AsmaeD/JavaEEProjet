@@ -40,5 +40,56 @@ public class DAOFactory {
 		return categorieDAO; 
 	}
 	
+	public static ArticleVenduDAO getArticleVenduDAO()  {
+		ArticleVenduDAO articleVenduDAO=null;
+		try {
+			articleVenduDAO=(ArticleVenduDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.ArticleVenduDAOJdbcImpl").newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return articleVenduDAO; 
+	}
+	
+	public static RetraitDAO getRtraitDAO()  {
+		RetraitDAO retraitDAO=null;
+		try {
+			retraitDAO=(RetraitDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.RetraitDAOJdbcImpl").newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retraitDAO; 
+	}
+	
+	public static EnchereDAO getEnchereDAO()  {
+		EnchereDAO EnchereDAO=null;
+		try {
+			EnchereDAO=(EnchereDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.EnchereDAOJdbcImpl").newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return EnchereDAO; 
+	}
+	
 
 }

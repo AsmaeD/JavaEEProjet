@@ -2,21 +2,7 @@ package fr.eni.projet.trocenchere.bo;
 
 public class Utilisateur {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	private int numUtilisateur;
-=======
-<<<<<<< HEAD
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
-	private int no_utilisateur;
-=======
-	private int numUtilisateur;
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
-<<<<<<< HEAD
-=======
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -26,27 +12,11 @@ public class Utilisateur {
 	private String codePostal;
 	private String ville;
 	private String motDePasse;
-	private int credit;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
-	private byte administrateur;
+	private int credit;	
+	private boolean administrateur;
+
 	
 	// Constructeur avec tous les attributs
-	
-	public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
-
-		this.no_utilisateur = no_utilisateur;
-=======
-<<<<<<< HEAD
-=======
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
-	private boolean administrateur;
 
 	public Utilisateur(
 			int numUtilisateur, 
@@ -63,14 +33,6 @@ public class Utilisateur {
 			boolean administrateur) {
 
 		this.numUtilisateur = numUtilisateur;
-<<<<<<< HEAD
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -84,21 +46,8 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 	// Constructeur sans le numéro d'utilisateur
-	
-	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
-			String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
-=======
-<<<<<<< HEAD
-=======
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
+
 	public Utilisateur(
 			String pseudo, 
 			String nom, 
@@ -111,14 +60,6 @@ public class Utilisateur {
 			String motDePasse, 
 			int credit, 
 			boolean administrateur) {
-<<<<<<< HEAD
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -132,41 +73,73 @@ public class Utilisateur {
 		this.credit = credit;
 		this.administrateur = administrateur;
 	}
+	
+	// Constructeur sans le numéro d'utilisateur sans valeur admin
+
+	public Utilisateur(
+			String pseudo, 
+			String nom, 
+			String prenom, 
+			String email,
+			String telephone, 
+			String rue,
+			String codePostal,
+			String ville, 
+			String motDePasse, 
+			int credit) {
+
+
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+		this.credit = credit;
+		this.administrateur = false;
+	}
+	
+	// Constructeur sans le numéro d'utilisateur sans valeur admin sans credits
+
+		public Utilisateur(
+				String pseudo, 
+				String nom, 
+				String prenom, 
+				String email,
+				String telephone, 
+				String rue,
+				String codePostal,
+				String ville, 
+				String motDePasse) {
+
+
+			this.pseudo = pseudo;
+			this.nom = nom;
+			this.prenom = prenom;
+			this.email = email;
+			this.telephone = telephone;
+			this.rue = rue;
+			this.codePostal = codePostal;
+			this.ville = ville;
+			this.motDePasse = motDePasse;
+			this.credit = 0;
+			this.administrateur = false;
+		}
+
 
 	public Utilisateur() {
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
-	public int getNo_utilisateur() {
-		return no_utilisateur;
-	}
-
-	public void setNo_utilisateur(int no_utilisateur) {
-		this.no_utilisateur = no_utilisateur;
-=======
-<<<<<<< HEAD
-=======
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 	public int getNumUtilisateur() {
 		return numUtilisateur;
 	}
 
 	public void setNumUtilisateur(int numUtilisateur) {
 		this.numUtilisateur = numUtilisateur;
-<<<<<<< HEAD
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
+
 	}
 
 	public String getPseudo() {
@@ -249,55 +222,19 @@ public class Utilisateur {
 		this.credit = credit;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
-	public byte getAdministrateur() {
-		return administrateur;
-	}
 
-	public void setAdministrateur(byte administrateur) {
-=======
-<<<<<<< HEAD
-=======
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
 	public boolean getAdministrateur() {
 		return administrateur;
 	}
 
 	public void setAdministrateur(boolean administrateur) {
-<<<<<<< HEAD
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
+
 		this.administrateur = administrateur;
 	}
 
 	@Override
 	public String toString() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
-		return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
-				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
-				+ ", administrateur=" + administrateur + "]";
-=======
-<<<<<<< HEAD
-=======
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
+
 		return "Utilisateur ["
 				+ "numUtilisateur=" + numUtilisateur 
 				+ ", pseudo=" + pseudo 
@@ -312,14 +249,7 @@ public class Utilisateur {
 				+ ", credit=" + credit
 				+ ", administrateur=" + administrateur 
 				+ "]";
-<<<<<<< HEAD
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 47966660e5bf5dd888181761c197c4402738d371
->>>>>>> df708d518552591eb2c74cddcceeed2abd011d04
->>>>>>> bddbbfa0a94d3f9e1f6107c095b003f326413f06
+
 	}
 	
 }

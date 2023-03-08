@@ -5,20 +5,15 @@ public class Enchere {
 	private int dateEnchere;
 	private int montant_enchere;
 	
-	private int noUtilisateur;
-	private int noArticleVendu;
+	private int utilisateur;
+	private int articleVendu;
 	
-	
-	
-	public Enchere(int dateEnchere, int montant_enchere, int noUtilisateur, int noArticleVendu) {
-		this.dateEnchere = dateEnchere;
-		this.montant_enchere = montant_enchere;
-		this.noUtilisateur = noUtilisateur;
-		this.noArticleVendu = noArticleVendu;
-	}
+	// Constructeur avec tous les attributs
 
-	public Enchere(int dateEnchere, int montant_enchere) {
-		
+	public Enchere(
+			int dateEnchere, 
+			int montant_enchere) {
+
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
 	}
@@ -43,25 +38,29 @@ public class Enchere {
 	}
 
 	public int getUtilisateur() {
-		return noUtilisateur;
+		return utilisateur;
 	}
 
-	public void setUtilisateur(int noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+	public void setUtilisateur(int utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
 	public int getArticleVendu() {
-		return noArticleVendu;
+		return articleVendu;
 	}
 
-	public void setArticleVendu(int noArticleVendu) {
-		this.noArticleVendu = noArticleVendu;
+	public void setArticleVendu(int articleVendu) {
+		this.articleVendu = articleVendu;
 	}
 
 	@Override
 	public String toString() {
-		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + ", articleVendu="
-				+ noArticleVendu + "]";
+
+		return "Enchere [dateEnchere=" + dateEnchere 
+				+ ", montant_enchere=" + montant_enchere 
+				+ ", articleVendu=" + articleVendu 
+				+ "]";
+
 	}
 	
 }

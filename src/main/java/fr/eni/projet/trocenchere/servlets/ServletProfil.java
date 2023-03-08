@@ -135,12 +135,12 @@ public class ServletProfil extends HttpServlet {
 			
 			// Récupération des nouvelles données
 			String pseudo = request.getParameter("pseudo");
-			String prenom = request.getParameter("prenom");
-			String tel = request.getParameter("tel");
-			String cp = request.getParameter("cp");
 			String nom = request.getParameter("nom");
+			String prenom = request.getParameter("prenom");
 			String email = request.getParameter("email");
+			String tel = request.getParameter("tel");
 			String rue = request.getParameter("rue");
+			String cp = request.getParameter("cp");
 			String ville = request.getParameter("ville");
 			String mdpAc = request.getParameter("mdp");
 			String newMdp = request.getParameter("newmdp");

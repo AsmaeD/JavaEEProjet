@@ -8,10 +8,11 @@ import javax.websocket.Session;
 
 import fr.eni.projet.trocenchere.bo.Retrait;
 import fr.eni.projet.trocenchere.bo.Utilisateur;
+import fr.eni.projet.trocenchere.dal.UtilisateurDAO;
 
 public class UtilisateurManager {
 
-	private DAO<Utilisateur> utilisateurDAO;
+	private UtilisateurDAO utilisateurDAO;
 	private static UtilisateurManager instance = null;
 
 
@@ -275,4 +276,5 @@ public class UtilisateurManager {
 						return new PasswordAuthentication(monEmail, password);
 					}
 				});
+}
 }

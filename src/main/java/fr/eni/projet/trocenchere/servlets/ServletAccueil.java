@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.projet.trocenchere.bll.ArticleVenduManager;
-import fr.eni.projet.trocenchere.bll.BusinessException;
 import fr.eni.projet.trocenchere.bo.ArticleVendu;
 
 /**

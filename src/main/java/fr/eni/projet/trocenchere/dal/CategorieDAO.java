@@ -13,5 +13,6 @@ public interface CategorieDAO {
 	
 	public List<Categorie> selectAll() throws BusinessException  ;
 	public Categorie selectById(int i) throws BusinessException  ;
+	
 
 }

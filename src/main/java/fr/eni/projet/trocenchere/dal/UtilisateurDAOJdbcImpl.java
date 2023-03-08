@@ -22,6 +22,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 	//declaration of all constants of sql requests
 	//TODO be careful woth unicité couple pseudo mot de passe à définir encore
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS" ;
+	private static final String SELECT_EMAIL = "SELECT COUNT(*) FROM UTILISATEURS WHERE email = ?";
 	private static final String SELECT_BY_PSEUDO = "SELECT " 
 			+ "no_utilisateur, " 
 			+ "pseudo, " 
@@ -104,6 +105,32 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 			throw businessException;
 		}
 		return listeUtilisateurs;
+	}
+
+	@Override
+	public int selectEmail(String email) throws BusinessException {
+		int nbLignes = 0;
+		try {
+			
+			Connection cnx = ConnectionProvider.getConnection();
+			
+			PreparedStatement pstmt ;
+			pstmt = cnx.prepareStatement(SELECT_EMAIL);
+		
+			pstmt.setString(1, email) ;
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				nbLignes = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+		
+			throw businessException;
+		}
+		
+		return nbLignes;
 	}
 	
 	@Override

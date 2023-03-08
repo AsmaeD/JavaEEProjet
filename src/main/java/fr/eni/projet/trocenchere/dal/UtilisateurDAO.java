@@ -12,7 +12,7 @@ public interface UtilisateurDAO {
 	public void update(Utilisateur user) throws BusinessException ;
 	//later add update status in case a user wants to deactivate profile
 	
-	
+	public int selectEmail(String email) throws BusinessException;
 	public List<Utilisateur> selectAll() throws BusinessException ;
 	public Utilisateur selectByPseudo(String pseudo) throws BusinessException ;
 	

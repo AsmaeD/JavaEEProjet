@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import fr.eni.projet.trocechere.BusinessException;
+import fr.eni.projet.trocenchere.bll.BusinessException;
 import fr.eni.projet.trocenchere.bo.Utilisateur;
 
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {//TODO ADD FILE TO PROJECT
@@ -82,6 +82,12 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {//TODO ADD FILE T
 			+ "administrateur = ? "
 			+ "WHERE pseudo = ? ;" ;
 	
+	private static final String SELECT_EMAIL = "SELECT COUNT(*) FROM UTILISATEURS WHERE email = ?";
+	
+	private static final String SELECT_PASSWORD = "SELECT COUNT(*) FROM UTILISATEURS WHERE mot_de_passe = ?";
+	
+	private static final String SELECT_PSEUDO = "SELECT COUNT(*) FROM UTILISATEURS WHERE pseudo = ?";
+	
 	
 /****************************************************************************************/
 	/*BEGIN METHODS SELECT*/
@@ -128,12 +134,15 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {//TODO ADD FILE T
 		//initialisation
 		//might not be a good idea
 		Utilisateur user = null ;
+		System.out.println("Hello"); //TODO
+		
 		try {
+			
 			
 			Connection cnx = ConnectionProvider.getConnection();
 			
 			PreparedStatement pstmt ;
-			pstmt = cnx.prepareStatement(SELECT_BY_PSEUDO );
+			pstmt = cnx.prepareStatement(SELECT_BY_PSEUDO);
 			//in SELECT_BY_PSEUDO only one variable passes : pseudo
 			//set variable to pseudo
 			pstmt.setString(1, pseudo ) ;
@@ -200,6 +209,33 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {//TODO ADD FILE T
 		
 		return user;
 	}
+
+	
+	public int selectEmail(String email) throws BusinessException {
+		int nbLignes = 0;
+		try {
+			
+			Connection cnx = ConnectionProvider.getConnection();
+			
+			PreparedStatement pstmt ;
+			pstmt = cnx.prepareStatement(SELECT_EMAIL);
+		
+			pstmt.setString(1, email) ;
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				nbLignes = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+		
+			throw businessException;
+		}
+		
+		return nbLignes;
+	}
+
 
 /****************************************************************************************/
 	/*BEGIN METHOD INSERT */
@@ -341,5 +377,62 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {//TODO ADD FILE T
 		}
 		
 	}
+	
+	@Override
+	public int selectPassword(String motDePasse) throws BusinessException {
+		int nbLignes = 0;
+		try {
+				
+			Connection cnx = ConnectionProvider.getConnection();
+				
+			PreparedStatement pstmt ;
+			pstmt = cnx.prepareStatement(SELECT_PASSWORD);
+			
+			pstmt.setString(1, motDePasse) ;
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				nbLignes = rs.getInt(1);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				BusinessException businessException = new BusinessException();
+			
+				throw businessException;
+			}
+			
+			return nbLignes;
+		}
 
+	
+	@Override
+	public int selectPseudo(String pseudo) throws BusinessException {
+		int nbLignes = 0;
+		System.out.println("testdao2");
+		try {
+			
+			Connection cnx = ConnectionProvider.getConnection();
+			PreparedStatement pstmt ;
+//			pstmt = cnx.prepareStatement(SELECT_PSEUDO);
+//			pstmt.setString(1, pseudo) ;
+//			ResultSet rs = pstmt.executeQuery();
+			pstmt = cnx.prepareStatement("SELECT * FROM UTILISATEURS WHERE pseudo = 'Montesqieu'");
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) { 
+				nbLignes = rs.getInt(1);
+				
+			System.out.println("testdao1");
+			}
+			System.out.println("testdao2");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+		
+			throw businessException;
+		}
+				
+		return nbLignes;
+	}
 }

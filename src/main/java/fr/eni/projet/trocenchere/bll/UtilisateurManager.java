@@ -1,13 +1,15 @@
 package fr.eni.projet.trocenchere.bll;
 
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
-import java.util.Properties;
 
-import javax.websocket.Session;
+//import java.net.Authenticator; //non utilisé
+//import java.net.PasswordAuthentication; //non utilisé
+//import java.util.Properties; //non utilisé
 
-import fr.eni.projet.trocenchere.bo.Retrait;
-import fr.eni.projet.trocenchere.bo.Utilisateur;
+//import javax.websocket.Session; //non utilisé
+
+//import fr.eni.projet.trocenchere.bo.Retrait; //non utilisé
+//import fr.eni.projet.trocenchere.bo.Utilisateur; //non utilisé
+import fr.eni.projet.trocenchere.dal.DAOFactory;
 import fr.eni.projet.trocenchere.dal.UtilisateurDAO;
 
 public class UtilisateurManager {
@@ -17,7 +19,7 @@ public class UtilisateurManager {
 
 
 	public UtilisateurManager() {
-		this.utilisateurDAO = DAOFactory.getUtilisateurDAO;
+		this.utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	}
 
 	public static synchronized UtilisateurManager getInstance() throws BusinessException {
@@ -59,7 +61,7 @@ public class UtilisateurManager {
 		}
 		int pseudoValide = 0;
 		try {
-			pseudoValide = this.utilisateurDAO.selectPseudo(nomPseudo);
+			pseudoValide = this.utilisateurDAO.selectPseudo(nomPseudo); //changer le nom
 			if(pseudoValide >= 1) {
 				statusValidation = true;
 			}			
@@ -73,6 +75,47 @@ public class UtilisateurManager {
 		}
 		return statusValidation;
 	}
+	
+	
+	// Méthode de verif pseudo
+	private boolean verifierPseudo(String identifiant) throws BusinessException {
+
+
+		boolean statusValidation = false;
+		int PseudoValide = 0; //pas ma meilleure façon de faire TODO changer le type vers BOOL
+
+		if (identifiant != null) {
+			try {
+				PseudoValide  = this.utilisateurDAO.selectPseudo(identifiant);
+				if(PseudoValide == 0 ) {
+					statusValidation = false;
+				}
+				else if(PseudoValide != 0) {
+					statusValidation = true;
+				}
+
+				System.out.println("passes-tu la");
+
+			} catch (Exception e) {
+				BusinessException businessException = new BusinessException(); 
+				businessException.ajouterErreur(CodesErreurBLL.CHECK_VALIDATIONMDP_ECHEC);
+				throw businessException;
+
+
+
+				//			System.out.println(e.getClass().getCanonicalName());
+				//			System.out.println("pas there");
+				//		}
+				//		finally { System.out.println("there"); // TODO
+
+
+			}
+		}
+
+		return statusValidation;
+	}
+
+
 
 	// Méthode de verif MPD :
 	public boolean validerMDP(String password) throws BusinessException {
@@ -97,16 +140,24 @@ public class UtilisateurManager {
 
 	//Méthode de connection
 	public boolean connection(String identifiant, String password) throws BusinessException{
+		
 		boolean testConnection = false;
-		testConnection = validerPseudo(identifiant);
+		//testConnection = verifierPseudo(identifiant);
+		testConnection = verifierPseudo("Montesqieu");
+		System.out.println(testConnection);
 		if (testConnection == true)
+				
 		{
-			testConnection = validerMDP(password);
+		//	testConnection = validerMDP(password);
+			testConnection = validerMDP("lolodelach235");
+			
 		}
 		return testConnection;	
+	//	return true; // hard test
 	}
 
 
+/*
 
 	public void ajouter(Utilisateur utilisateur) throws BusinessException {
 
@@ -275,5 +326,5 @@ public class UtilisateurManager {
 					protected PasswordAuthentication getPasswordAuthentication() {
 						return new PasswordAuthentication(monEmail, password);
 					}
-				});
+				});*/
 }

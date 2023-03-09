@@ -9,7 +9,7 @@ public class DAOFactory {
 	//TODO ADD OTHER DAOs
 		UtilisateurDAO utilisateurDAO=null;
 		try {
-			utilisateurDAO=(UtilisateurDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.UtilisateurDAOJdbcImpl").newInstance();
+			utilisateurDAO=(UtilisateurDAO ) Class.forName("fr.eni.projet.trocenchere.dal.UtilisateurDAOJdbcImpl").newInstance();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -26,7 +26,7 @@ public class DAOFactory {
 	public static CategorieDAO getCategorieDAO()  {
 		CategorieDAO categorieDAO=null;
 		try {
-			categorieDAO=(CategorieDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.CategorieDAOJdbcImpl").newInstance();
+			categorieDAO=(CategorieDAO ) Class.forName("fr.eni.projet.trocenchere.dal.CategorieDAOJdbcImpl").newInstance();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class DAOFactory {
 	public static ArticleVenduDAO getArticleVenduDAO()  {
 		ArticleVenduDAO articleVenduDAO=null;
 		try {
-			articleVenduDAO=(ArticleVenduDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.ArticleVenduDAOJdbcImpl").newInstance();
+			articleVenduDAO=(ArticleVenduDAO ) Class.forName("fr.eni.projet.trocenchere.dal.ArticleVenduDAOJdbcImpl").newInstance();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,10 +57,10 @@ public class DAOFactory {
 		return articleVenduDAO; 
 	}
 	
-	public static RetraitDAO getRtraitDAO()  {
+	public static RetraitDAO getRetraitDAO()  {
 		RetraitDAO retraitDAO=null;
 		try {
-			retraitDAO=(RetraitDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.RetraitDAOJdbcImpl").newInstance();
+			retraitDAO=(RetraitDAO ) Class.forName("fr.eni.projet.trocenchere.dal.RetraitDAOJdbcImpl").newInstance();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,7 +77,7 @@ public class DAOFactory {
 	public static EnchereDAO getEnchereDAO()  {
 		EnchereDAO EnchereDAO=null;
 		try {
-			EnchereDAO=(EnchereDAO ) Class.forName("fr.eni.papeterie.dal.jdbc.EnchereDAOJdbcImpl").newInstance();
+			EnchereDAO=(EnchereDAO ) Class.forName("fr.eni.projet.trocenchere.dal.EnchereDAOJdbcImpl").newInstance();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

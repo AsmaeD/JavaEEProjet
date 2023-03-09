@@ -81,7 +81,7 @@ public class ServletConnection extends HttpServlet {
 
 			String utilisateur = request.getParameter("Identifiant");
 			String password	= request.getParameter("Password");
-			String souvenirMoi = request.getParameter("souvenirMoi");
+			//String souvenirMoi = request.getParameter("souvenirMoi");
 
 
 			//Appel de la méthode de connection
@@ -101,25 +101,28 @@ public class ServletConnection extends HttpServlet {
 
 				HttpSession session = request.getSession(true);
 				session.setAttribute("Utilisateur", utilisateur);
-				if(souvenirMoi != null)
+				System.out.println(utilisateur); //TODO DELETE
+				
+				/*if(souvenirMoi != null)  // pas implémenté
 				{
 					//création d'un cookie de connection pour une semaine
 					Cookie cookieConnection	= new Cookie ("userPseudo", utilisateur);
 					cookieConnection.setMaxAge(7*24*3600);
 					response.addCookie(cookieConnection);
 
-				}
+				}*/
 
 				response.sendRedirect(request.getContextPath()+"/index.jsp");
 
 			}
+			}
 
 
-		} catch (NumberFormatException | BusinessException e) {
-			throw new ServletException("La connexion à échouée");
+		 catch (NumberFormatException | BusinessException e) {
+			throw new ServletException("La connexion à échouée,"+ testConnection);
+			
 		} 
 
 
 	}
-
 }

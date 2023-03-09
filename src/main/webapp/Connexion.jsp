@@ -41,7 +41,7 @@
 					<div class="Connection_SouvenirMoi">
 						<input type="checkbox" name="souvenirMoi" id="souvenirMoi">
 						<label for="souvenirMoi">Se souvenir de moi</label>
-					</div>
+					</div> 
 					<a href="MotDePasseOublie">Mot de passe oublié</a>
 				</div>
 			</div>

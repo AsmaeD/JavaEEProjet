@@ -5,7 +5,7 @@ import fr.eni.projet.trocenchere.bo.Categorie;
 
 public class CategorieManager {
 	
-	private DAO<Categorie> categorieDAO;
+	private CategorieDAO categorieDAO;
 
 	public CategorieManager() {
 		this.categorieDAO = DAOFactory.getCategorieDAO;

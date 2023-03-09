@@ -27,7 +27,7 @@ public class UtilisateurManager {
 		return instance;
 	}
 
-	// Méthode qui vérifie si le mail ne soit pas déjà existant
+	// Méthode qui vérifie si le mail n'est pas déjà existant
 	public boolean validerMail(String nomMail) throws BusinessException {
 		boolean statusValidation = false;
 		if(nomMail == null | nomMail.length() > 60) {

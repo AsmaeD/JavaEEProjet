@@ -6,7 +6,7 @@ import fr.eni.projet.trocenchere.bo.Retrait;
 public class RetraitManager {
 	
 	private static RetraitManager instance;
-	private DAO<Retrait> retraitDAO;
+	private RetraitDAO retraitDAO;
 
 	public RetraitManager() {
 		this.retraitDAO = DAOFactory.getRetraitDAO;

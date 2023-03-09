@@ -15,6 +15,7 @@ public interface UtilisateurDAO {
 	public int selectEmail(String email) throws BusinessException;
 	public List<Utilisateur> selectAll() throws BusinessException ;
 	public Utilisateur selectByPseudo(String pseudo) throws BusinessException ;
+	public int selectPseudo(String pseudo) throws BusinessException;
 	
 	//create possibly a cocher and decocher style functions to allow suppression as in tp 6
 	

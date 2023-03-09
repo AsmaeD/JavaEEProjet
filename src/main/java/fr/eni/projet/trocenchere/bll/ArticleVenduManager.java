@@ -11,7 +11,7 @@ import fr.eni.projet.trocenchere.bo.Categorie;
 public class ArticleVenduManager {
 	
 	private static ArticleVenduManager instance;
-	private DAO<ArticleVendu> articleDAO;
+	private ArticleVenduDAO articleDAO;
 
 	public ArticleVenduManager() {
 		this.articleDAO = DAOFactory.getArticleVenduDAO;
@@ -87,8 +87,8 @@ public class ArticleVenduManager {
 		if (Integer.valueOf(articleVendu.getNoArticle()) == null || 
 			articleVendu.getNomArticle() == null ||
 			articleVendu.getDescription() == null ||
-			articleVendu.getDateDebutEncheres() == null ||
-			articleVendu.getDateFinEncheres() == null)
+			Integer.valueOf(articleVendu.getDateDebutEncheres()) == null ||
+			Integer.valueOf(articleVendu.getDateFinEncheres()) == null)
 			{
 				businessException.ajouterErreur(CodesErreurBLL.REGLE_ATTRIBUT_NON_NULL);
 			}

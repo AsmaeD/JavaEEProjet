@@ -10,7 +10,7 @@ import fr.eni.projet.trocenchere.bo.Utilisateur;
 
 public class EnchereManager {
 	
-	private DAO<Enchere> enchereDAO;	
+	private EnchereDAO enchereDAO;	
 	private static EnchereManager instance;
 
 	public EnchereManager() {

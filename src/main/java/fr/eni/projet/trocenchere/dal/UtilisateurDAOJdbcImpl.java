@@ -24,7 +24,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS" ;
 	private static final String SELECT_EMAIL = "SELECT COUNT(*) FROM UTILISATEURS WHERE email = ?";
 	private static final String SELECT_PSEUDO = "SELECT COUNT(*) FROM UTILISATEURS WHERE pseudo = ?";
-
+	private static final String SELECT_PASSWORD = "SELECT COUNT(*) FROM UTILISATEURS WHERE mot_de_passe = ?";
 	private static final String SELECT_BY_PSEUDO = "SELECT " 
 			+ "no_utilisateur, " 
 			+ "pseudo, " 
@@ -67,6 +67,10 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 			+ "credit = ?, "
 			+ "administrateur = ? "
 			+ "WHERE pseudo = ? ;" ;
+	private static final String UPDATE_PASSWORD = "UPDATE UTILISATEURS SET "
+			+ "pseudo = ?, "
+			+ "mot_de_passe = ?, "
+			+ "WHERE mot_de_passe = ?;" ;		
 	
 	
 /****************************************************************************************/
@@ -149,6 +153,32 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
 				nbLignes = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+		
+			throw businessException;
+		}
+		
+		return nbLignes;
+	}
+
+	@Override
+public int selectPassword(String motDePasse) throws BusinessException {
+	int nbLignes = 0;
+	try {
+			
+		Connection cnx = ConnectionProvider.getConnection();
+			
+		PreparedStatement pstmt ;
+		pstmt = cnx.prepareStatement(SELECT_PASSWORD);
+		
+		pstmt.setString(1, motDePasse) ;
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next()) {
+			nbLignes = rs.getInt(1);
 			}
 			
 		} catch (Exception e) {
@@ -340,5 +370,48 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {//TODO ADD FILE
 		}
 		
 	}
+
+	@Override
+	public void updatePassword(String pseudo, String mdp) throws BusinessException {
+		
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			try
+			{
+				PreparedStatement pstmt;
+				
+				pstmt = cnx.prepareStatement(UPDATE_PASSWORD);
+				
+				pstmt.setString(1,user.getEmail()) ;
+				pstmt.setString(2, user.getTelephone()) ;
+				pstmt.setString(3, user.getRue()) ;
+				pstmt.setString(4, user.getCodePostal()) ;
+				pstmt.setString(5, user.getVille()) ;
+				pstmt.setInt(6, user.getCredit()) ;
+				pstmt.setByte(7, user.getAdministrateur()) ;
+				pstmt.setString(8, pseudo) ;
+				pstmt.setString(9, mdp) ;
+				pstmt.executeUpdate() ;
+				pstmt.close() ;
+				
+				cnx.commit() ;
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				cnx.rollback();
+				throw e;
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			//businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
+			throw businessException;
+		}
+		
+	}
+
 
 }
